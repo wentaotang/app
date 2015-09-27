@@ -9,7 +9,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
        default-lazy-init="true">
 
-    <description>Spring公共配置 </description>
+    <description>Spring  db公共配置 </description>
 
     <context:property-placeholder ignore-resource-not-found="true" location="classpath*:/jdbc.properties" />
     <!-- MyBatis配置 -->
@@ -18,7 +18,7 @@
         <!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
         <property name="typeAliasesPackage" value="cn.com.plat.entity" />
         <!-- 显式指定Mapper文件位置 -->
-        <property name="mapperLocations" value="classpath:/mybatis/*Mapper.xml" />
+        <property name="mapperLocations" value="classpath:/mybatis/*.xml" />
         <!-- mybatis 全局配置文件 -->
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
     </bean>
@@ -38,14 +38,7 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <!-- 文件上传组件 -->
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <!-- 设置文件上传的最大尺寸为500K -->
-        <property name="maxInMemorySize" value="512000"/>
-    </bean>
 
-    <!-- JSR303 Validator定义 -->
-    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 
     <!-- 使用Tomcat JDBC连接池 -->
     <bean id="dataSourceSpied" class="com.alibaba.druid.pool.DruidDataSource"
