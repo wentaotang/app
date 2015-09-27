@@ -12,6 +12,9 @@
         <module>app-parent</module>
         <module>app-util</module>
         <module>app-config</module>
+        <module>app-repository</module>
+        <module>app-domain</module>
+        <module>app-service</module>
     </modules>
 
 

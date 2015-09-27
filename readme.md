@@ -6,4 +6,11 @@
   * springmvc
   *  mybatis
   * log4jdbc-log4j
+
+
+
+### 各个模块的依赖关系
+
+   1. app-repository 依赖于 app-domain、app-config
+   2. app-service  依赖于  app-util、app-repository
   

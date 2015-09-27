@@ -9,10 +9,19 @@
         <relativePath>../app-parent/</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>app-config</artifactId>
+    <artifactId>app-repository</artifactId>
 
     <dependencies>
-
+        <dependency>
+            <groupId>com.hgcode</groupId>
+            <artifactId>app-config</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hgcode</groupId>
+            <artifactId>app-domain</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 
