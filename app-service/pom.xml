@@ -22,9 +22,10 @@
             <artifactId>app-util</artifactId>
             <version>${project.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
+            <artifactId>spring-context-support</artifactId>
         </dependency>
     </dependencies>
 
