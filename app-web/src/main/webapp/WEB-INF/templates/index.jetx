@@ -50,7 +50,7 @@
         </div>
         <div class="signup-footer">
             <div class="pull-left">
-                &copy; 2015 All Rights Reserved. 北京恒亿慧通科技
+                &copy; ${new Date().format("yyyy")} All Rights Reserved. 北京恒亿慧通科技
             </div>
         </div>
     </div>
