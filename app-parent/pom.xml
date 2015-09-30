@@ -44,6 +44,7 @@
 
     <dependencyManagement>
         <dependencies>
+            <!--spring 相关的jar   begin-->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
@@ -64,7 +65,8 @@
                 <artifactId>spring-jdbc</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-
+            <!--spring 相关的jar   end-->
+            <!--mybatis，分页的jar   begin-->
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-spring</artifactId>
@@ -75,7 +77,13 @@
                 <artifactId>mybatis</artifactId>
                 <version>${mybatis.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.github.miemiedev</groupId>
+                <artifactId>mybatis-paginator</artifactId>
+                <version>${mybatis-paginator.version}</version>
+            </dependency>
+            <!--mybatis相关的jar   end-->
+            <!-- 数据库及连接池相关的jar   begin -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
@@ -86,31 +94,39 @@
                 <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.github.miemiedev</groupId>
-                <artifactId>mybatis-paginator</artifactId>
-                <version>${mybatis-paginator.version}</version>
-            </dependency>
-
+            <!-- 数据库及连接池相关的jar   end -->
+            <!--日志相关的jar   begin-->
             <dependency>
                 <groupId>org.bgee.log4jdbc-log4j2</groupId>
                 <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
                 <version>${log4jdbc-log4j2.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <!--日志相关的jar   end-->
+            <!--模板引擎相关的jar  begin-->
             <dependency>
                 <groupId>com.github.subchen</groupId>
                 <artifactId>jetbrick-template-springmvc</artifactId>
                 <version>${jetbrick-template.version}</version>
             </dependency>
-
-
+            <!--模板引擎相关的jar  begin-->
+            <!--测试相关的jar   begin-->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
+            <!--测试相关的jar   end-->
         </dependencies>
     </dependencyManagement>
 
