@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" >
-
-#include("layouts/header.jetx")
-
+<head>
+    <title>H+ 后台主题UI框架 - 登录</title>
+    #include("layouts/header.jetx")
+</head>
 <body class="signin">
     <div class="signinpanel">
         <div class="row">
