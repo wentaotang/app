@@ -1,9 +1,5 @@
 package com.hgcode.jedis;
 
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
-
 
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;

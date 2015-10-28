@@ -13,6 +13,8 @@ public class JedisTest {
         JedisPool jedisPool=JedisPoolUtils.getJedisPopol(0);
         JedisPool jedisPool2=JedisPoolUtils.getJedisPopol(0);
         JedisPool jedisPool3=JedisPoolUtils.getJedisPopol(0);
+        JedisTemplate jedisTemplate=new JedisTemplate(jedisPool);
+        System.out.println(jedisTemplate.hget("key1","file21"));
         System.out.println(jedisPool);
         System.out.println(jedisPool2);
         System.out.println(jedisPool3);
