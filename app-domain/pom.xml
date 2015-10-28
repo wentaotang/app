@@ -11,5 +11,12 @@
 
     <artifactId>app-domain</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.hgcode</groupId>
+            <artifactId>app-util</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>

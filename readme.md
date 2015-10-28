@@ -11,7 +11,8 @@
 
 
 ### 各个模块的依赖关系
-
-   1. app-repository 依赖于 app-domain
-   2. app-service  依赖于  app-util、app-repository
+   
+   1. app-domain 依赖于 app-util
+   2. app-repository 依赖于 app-domain
+   3. app-service  依赖于  app-repository
   
