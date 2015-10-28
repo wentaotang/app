@@ -1,3 +1,8 @@
+/*******************************************************************************
+ * Copyright (c) 2005, 2014 springside.github.io
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *******************************************************************************/
 package com.hgcode.jedis;
 
 import org.slf4j.Logger;
@@ -15,9 +20,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
-/**
- * Created by wentao on 2015/10/28.
- */
 public class JedisPoolBuilder {
     public static final String DIRECT_POOL_PREFIX = "direct:";
     public static final String SENTINEL_POOL_PREFIX = "direct:";

@@ -1,3 +1,8 @@
+/*******************************************************************************
+ * Copyright (c) 2005, 2014 springside.github.io
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *******************************************************************************/
 package com.hgcode.jedis;
 
 
@@ -7,9 +12,6 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.util.Pool;
 
-/**
- * Created by wentao on 2015/10/28.
- */
 public abstract class JedisPool extends Pool<Jedis> {
     protected String poolName;
 

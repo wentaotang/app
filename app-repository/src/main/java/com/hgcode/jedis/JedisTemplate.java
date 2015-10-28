@@ -1,3 +1,8 @@
+/*******************************************************************************
+ * Copyright (c) 2005, 2014 springside.github.io
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *******************************************************************************/
 package com.hgcode.jedis;
 
 import org.slf4j.Logger;
@@ -10,9 +15,7 @@ import redis.clients.jedis.exceptions.JedisException;
 
 import java.util.List;
 
-/**
- * Created by wentao on 2015/10/28.
- */
+
 public class JedisTemplate {
     private static Logger logger = LoggerFactory.getLogger(JedisTemplate.class);
 
@@ -193,7 +196,5 @@ public class JedisTemplate {
             }
         });
     }
-
-
 
 }

@@ -1,8 +1,6 @@
 package com.hgcode.jedis;
 
-
 import java.util.ResourceBundle;
-import java.util.concurrent.ExecutionException;
 
 /**
  * Created by wentao on 2015/10/28.

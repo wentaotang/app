@@ -1,3 +1,8 @@
+/*******************************************************************************
+ * Copyright (c) 2005, 2014 springside.github.io
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *******************************************************************************/
 package com.hgcode.jedis;
 
 import org.slf4j.Logger;
@@ -14,9 +19,6 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/**
- * Created by wentao on 2015/10/28.
- */
 public class JedisSentinelPool extends JedisPool {
     private static final String NO_ADDRESS_YET = "I dont know because no sentinel up";
 
