@@ -12,10 +12,12 @@
         </param-value>
     </context-param>
 
-    <!--Spring ApplicationContext 载入 -->
+    <!--Spring ApplicationContext 载入
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    -->
+
 
     <!-- Spring MVC Servlet -->
     <servlet>

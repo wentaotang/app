@@ -17,11 +17,6 @@
             <artifactId>app-repository</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.hgcode</groupId>
-            <artifactId>app-util</artifactId>
-            <version>${project.version}</version>
-        </dependency>
     </dependencies>
 
 
