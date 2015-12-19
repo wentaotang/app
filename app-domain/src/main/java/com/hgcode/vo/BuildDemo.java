@@ -1,4 +1,4 @@
-package com.hgcod.vo;
+package com.hgcode.vo;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
