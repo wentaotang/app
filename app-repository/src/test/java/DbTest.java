@@ -20,10 +20,7 @@ public class DbTest {
     @Autowired
     private ApplicationContext applicationContext;
 
-    @Before
-    public void init(){
 
-    }
 
     @Test
     public void test1(){
