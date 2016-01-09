@@ -45,7 +45,9 @@
     <!-- 容器默认的DefaultServletHandler处理 所有静态内容与无RequestMapping处理的URL -->
     <mvc:default-servlet-handler />
 
+
     <!-- 项目首页    即/web-inf/views/index.jetx -->
     <mvc:view-controller path="/" view-name="index"/>
+
 
 </beans>
