@@ -9,27 +9,35 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
        default-lazy-init="true">
 
-    <description>Spring-db 公共配置 </description>
-
+    <description>持久层配置</description>
+    <!--加载properties文件-->
     <context:property-placeholder ignore-resource-not-found="true" location="classpath*:/jdbc.properties" />
     <!-- MyBatis配置 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
+        <!-- 自动扫描domain目录, 省掉Configuration.xml里的手工配置 -->
         <property name="typeAliasesPackage" value="com.hgcode.domain" />
-        <!-- 显式指定Mapper文件位置 -->
+        <!-- 显式指定mybatis xml文件位置 -->
         <property name="mapperLocations" value="classpath:/mybatis/*.xml" />
-        <!-- mybatis 全局配置文件 -->
-        <property name="configLocation" value="classpath:mybatis-config.xml"/>
-    </bean>
-    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageHelper">
+                    <!-- 这里的几个配置主要演示如何使用，如果不理解，一定要去掉下面的配置 -->
+                    <property name="properties">
+                        <value>
+                            dialect=mysql
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
     </bean>
 
-    <!-- 扫描basePackage下所有以@MyBatisRepository标识的 接口 -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.hgcode.repository" />
-        <property name="annotationClass" value="com.hgcode.repository.MyBatisRepository" />
+    <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--扫描mybatis 接口目录-->
+        <property name="basePackage" value="com.hgcode.repository"/>
+        <!-- 3.2.2版本新特性，markerInterface可以起到mappers配置的作用，详细情况需要看Marker接口类 -->
+        <property name="markerInterface" value="com.hgcode.support.MyRepository"/>
     </bean>
 
     <!-- 使用annotation定义事务 -->
