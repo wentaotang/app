@@ -30,7 +30,7 @@
         <mybatis-paginator.version>1.2.17</mybatis-paginator.version>
         <fastjson.version>1.2.7</fastjson.version>
         <jetty.version>8.1.16.v20140903</jetty.version>
-        <commons-lang.version>3.4</commons-lang.version>
+        <commons-lang3.version>3.4</commons-lang3.version>
         <junit.version>4.12</junit.version>
         <jetbrick-template.version>2.0.12</jetbrick-template.version>
         <mybatis-paginator.version>1.2.17</mybatis-paginator.version>
@@ -39,7 +39,7 @@
         <persistence-api.version>1.0.2</persistence-api.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.7</java.version>
+        <java.version>1.8</java.version>
     </properties>
 
     <dependencyManagement>
@@ -50,11 +50,11 @@
                 <artifactId>spring-webmvc</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-            <dependency>
+            <!--<dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
                 <version>${spring.version}</version>
-            </dependency>
+            </dependency>-->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context-support</artifactId>
@@ -134,7 +134,11 @@
             </dependency>
             <!--日志相关的jar   end-->
             <!--工具类 begin-->
-
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
             <!--工具类 end-->
 
             <!--模板引擎相关的jar  begin-->
