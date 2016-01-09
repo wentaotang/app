@@ -13,6 +13,8 @@
         <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>
 
+    <context:annotation-config></context:annotation-config>
+
     <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager">
         <mvc:message-converters register-defaults="true">
             <!-- 将StringHttpMessageCOnverter的默认编码设为UTF-8 -->

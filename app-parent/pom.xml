@@ -34,7 +34,9 @@
         <junit.version>4.12</junit.version>
         <jetbrick-template.version>2.0.12</jetbrick-template.version>
         <mybatis-paginator.version>1.2.17</mybatis-paginator.version>
+        <mybatis-mapper.version>3.3.4</mybatis-mapper.version>
         <jedis.version>2.7.3</jedis.version>
+        <persistence-api.version>1.0.2</persistence-api.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.7</java.version>
@@ -75,10 +77,20 @@
                 <artifactId>mybatis</artifactId>
                 <version>${mybatis.version}</version>
             </dependency>
-            <dependency>
+            <!--<dependency>
                 <groupId>com.github.miemiedev</groupId>
                 <artifactId>mybatis-paginator</artifactId>
                 <version>${mybatis-paginator.version}</version>
+            </dependency>-->
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper</artifactId>
+                <version>${mybatis-mapper.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>4.1.1</version>
             </dependency>
             <!--mybatis相关的jar   end-->
             <!-- 数据库及连接池相关的jar   begin -->
@@ -96,6 +108,11 @@
                 <groupId>redis.clients</groupId>
                 <artifactId>jedis</artifactId>
                 <version>${jedis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.persistence</groupId>
+                <artifactId>persistence-api</artifactId>
+                <version>${persistence-api.version}</version>
             </dependency>
 
             <!-- 数据库及连接池相关的jar   end -->
@@ -133,6 +150,11 @@
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
             </dependency>
             <!--测试相关的jar   end-->
         </dependencies>
