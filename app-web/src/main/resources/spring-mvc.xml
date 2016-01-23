@@ -13,7 +13,7 @@
         <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController"/>
     </context:component-scan>
 
-    <context:annotation-config></context:annotation-config>
+    <context:annotation-config/>
 
     <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager">
         <mvc:message-converters register-defaults="true">
@@ -38,7 +38,7 @@
     <bean id="viewResolver" class="jetbrick.template.web.springmvc.JetTemplateViewResolver">
         <property name="order" value="1" />
         <property name="contentType" value="text/html; charset=utf-8" />
-        <property name="suffix" value=".jetx" />
+        <property name="suffix" value=".html" />
         <!-- 指定配置文件 -->
         <property name="configLocation" value="classpath:jetbrick-template.properties" />
     </bean>
@@ -48,7 +48,7 @@
     <mvc:default-servlet-handler />
 
 
-    <!-- 项目首页    即/web-inf/views/index.jetx -->
+    <!-- 项目首页    即/web-inf/views/index.html -->
     <mvc:view-controller path="/" view-name="index"/>
 
 
