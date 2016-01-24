@@ -4,7 +4,7 @@
   
   * spring
   * springmvc
-  *  mybatis
+  * mybatis
   * log4jdbc-log4j(打印sql的日志)
   * jetbrick-tempalte(模板引擎)
 
