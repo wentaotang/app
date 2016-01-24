@@ -1,5 +1,6 @@
 import com.hgcode.domain.UserEntity;
 import com.hgcode.repository.UserRepository;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +20,18 @@ public class DbTest {
     @Autowired
     private ApplicationContext applicationContext;
 
+    private UserRepository userRepository;
+
+    @Before
+    public void before(){
+        userRepository=(UserRepository)applicationContext.getBean("userRepository");
+    }
+
 
 
     @Test
     public void test1(){
-        UserRepository userRepository=(UserRepository)applicationContext.getBean("userRepository");
+
         List<UserEntity> list=userRepository.selectAll();
         for(UserEntity user:list){
             System.out.println(user.getName());
@@ -32,7 +40,6 @@ public class DbTest {
 
     @Test
     public void addTest(){
-        UserRepository userRepository=(UserRepository)applicationContext.getBean("userRepository");
         UserEntity userEntity=new UserEntity();
         userEntity.setName("xieguiy");
         int id=userRepository.insert(userEntity);

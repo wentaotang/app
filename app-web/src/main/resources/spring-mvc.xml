@@ -39,6 +39,7 @@
         <property name="order" value="1" />
         <property name="contentType" value="text/html; charset=utf-8" />
         <property name="suffix" value=".html" />
+        <property name="prefix" value="/WEB-INF/templates/"/>
         <!-- 指定配置文件 -->
         <property name="configLocation" value="classpath:jetbrick-template.properties" />
     </bean>
@@ -49,7 +50,7 @@
 
 
     <!-- 项目首页    即/web-inf/views/index.html -->
-    <mvc:view-controller path="/" view-name="index"/>
+    <mvc:view-controller path="/" view-name="login"/>
 
 
 </beans>
