@@ -1,5 +1,7 @@
 package com.hgcode.domain;
 
+import com.hgcode.SexEnum;
+
 import javax.persistence.*;
 
 /**
@@ -12,6 +14,10 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    @Column(name="sex")
+//    @Enumerated()
+    @Enumerated(EnumType.ORDINAL)
+    private SexEnum sexEnum;
 
     public Integer getId() {
         return id;
@@ -29,6 +35,11 @@ public class UserEntity {
         this.name = name;
     }
 
+    public SexEnum getSexEnum() {
+        return sexEnum;
+    }
 
-
+    public void setSexEnum(SexEnum sexEnum) {
+        this.sexEnum = sexEnum;
+    }
 }

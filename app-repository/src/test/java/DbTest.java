@@ -42,7 +42,8 @@ public class DbTest {
     @Test
     public void addTest(){
         UserEntity userEntity=new UserEntity();
-        userEntity.setName("xieguiy");
+        userEntity.setName("小乖");
+        userEntity.setSexEnum(SexEnum.FEMAL);
         int id=userRepository.insert(userEntity);
         System.out.println(id);
     }
