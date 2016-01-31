@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-	 <property name="USER_HOME" value="/logs"/>
+	<property name="USER_HOME" value="/logs"/>
 	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
 			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
 		</encoder>
 	</appender>
-	<appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	<!--<appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<fileNamePattern>${USER_HOME}/error/error-%d{yyyy-MM-dd}.log</fileNamePattern>
 			<maxHistory>3</maxHistory>
@@ -42,7 +42,7 @@
 			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
 			<MaxFileSize>10MB</MaxFileSize>
 		</triggeringPolicy>
-	</appender>
+	</appender>-->
 
 	<!--log4jdbc -->
 	<logger name="jdbc.sqltiming" level="INFO" />
@@ -63,17 +63,17 @@
 	   </layout>
 	</appender> -->
 
-	<logger name="platform-error" level="error">
+	<!--<logger name="platform-error" level="error">
 		<appender-ref ref="ERROR" />
 	</logger>
 	<logger name="platform-access" level="info">
 		<appender-ref ref="ACCESS" />
-	</logger>
+	</logger>-->
 
 	<root level="WARN">
 		<appender-ref ref="console" />
-		<appender-ref ref="ERROR" />
-		<appender-ref ref="ACCESS" />
+		<!--<appender-ref ref="ERROR" />-->
+		<!--<appender-ref ref="ACCESS" />-->
 	</root>
 	
 </configuration>

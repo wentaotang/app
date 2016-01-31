@@ -1,3 +1,4 @@
+import com.hgcode.SexEnum;
 import com.hgcode.domain.UserEntity;
 import com.hgcode.repository.UserRepository;
 import org.junit.Before;
@@ -44,6 +45,13 @@ public class DbTest {
         userEntity.setName("xieguiy");
         int id=userRepository.insert(userEntity);
         System.out.println(id);
+    }
+
+
+    @Test
+    public void enumTest(){
+        SexEnum sex= SexEnum.MALE;
+        System.out.println(sex.getText());
     }
 
 
