@@ -1,6 +1,8 @@
 package com.hgcode.domain;
 
 import com.hgcode.SexEnum;
+import com.sun.xml.internal.bind.annotation.OverrideAnnotationOf;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.*;
 
@@ -41,5 +43,10 @@ public class UserEntity {
 
     public void setSexEnum(SexEnum sexEnum) {
         this.sexEnum = sexEnum;
+    }
+
+    @Override
+    public String toString(){
+        return ToStringBuilder.reflectionToString(this);
     }
 }

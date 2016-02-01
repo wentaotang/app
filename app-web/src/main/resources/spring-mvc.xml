@@ -52,5 +52,9 @@
     <!-- 项目首页    即/web-inf/views/index.html -->
     <mvc:view-controller path="/" view-name="login"/>
 
+    <mvc:interceptors>
+        <bean class="com.hgcode.inteceptor.LoginInteceptor"/>
+    </mvc:interceptors>
+
 
 </beans>
