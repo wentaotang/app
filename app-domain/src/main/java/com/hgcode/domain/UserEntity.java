@@ -17,8 +17,6 @@ public class UserEntity {
     private Integer id;
     private String name;
     @Column(name="sex")
-//    @Enumerated()
-    @Enumerated(EnumType.ORDINAL)
     private SexEnum sexEnum;
 
     public Integer getId() {

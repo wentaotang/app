@@ -42,18 +42,11 @@ public class DbTest {
     @Test
     public void addTest(){
         UserEntity userEntity=new UserEntity();
-        userEntity.setName("小乖");
+        userEntity.setName("小乖2");
         userEntity.setSexEnum(SexEnum.FEMAL);
-        int id=userRepository.insert(userEntity);
-        System.out.println(id);
+        userRepository.saveEnum(userEntity);
     }
 
-
-    @Test
-    public void enumTest(){
-        SexEnum sex= SexEnum.MALE;
-        System.out.println(sex.getText());
-    }
 
 
 }

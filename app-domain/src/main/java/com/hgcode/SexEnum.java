@@ -5,24 +5,17 @@ package com.hgcode;
  */
 public enum SexEnum {
 
-    MALE("1","男"),FEMAL("2","女");
+    MALE("1"),FEMAL("2");
 
     private  String value;
     private  String text;
 
-    private SexEnum(){}
-
-    SexEnum( String value , String text){
-        this.text=text;
+    SexEnum(String value){
         this.value=value;
     }
 
     public String getValue(){
         return value;
-    }
-
-    public String getText(){
-        return text;
     }
 
 
