@@ -47,6 +47,15 @@ public class DbTest {
         userRepository.insert(userEntity);
     }
 
+    @Test
+    public void updateTest(){
+        UserEntity userEntity=userRepository.selectByPrimaryKey(7);
+        userEntity.setSexEnum(SexEnum.MALE);
+        userRepository.updateByPrimaryKey(userEntity);
+    }
+
+
+
 
 
 }
