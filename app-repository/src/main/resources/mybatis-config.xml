@@ -9,7 +9,7 @@
     </settings>
 
     <typeHandlers>
-        <typeHandler javaType="com.hgcode.SexEnum" handler="com.hgcode.typehandle.EnumTypeHandle"/>
+        <typeHandler javaType="com.hgcode.SexEnum" handler="com.hgcode.typehandle.SexEnumTypeHandle"/>
     </typeHandlers>
 
 </configuration>

@@ -1,12 +1,8 @@
 package com.hgcode.typehandle;
 
 import com.hgcode.SexEnum;
-import com.hgcode.domain.UserEntity;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
-import org.apache.ibatis.type.MappedJdbcTypes;
-import org.apache.ibatis.type.MappedTypes;
-
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +11,7 @@ import java.sql.SQLException;
 /**
  * Created by wentao on 16/2/14.
  */
-public class EnumTypeHandle extends BaseTypeHandler<SexEnum> {
+public class SexEnumTypeHandle extends BaseTypeHandler<SexEnum> {
    private Class<SexEnum> type;
     private final SexEnum[] enums;
 
@@ -23,7 +19,7 @@ public class EnumTypeHandle extends BaseTypeHandler<SexEnum> {
      * 设置配置文件设置的转换类以及枚举类内容，供其他方法更便捷高效的实现
      * @param type 配置文件中设置的转换类
      */
-    public EnumTypeHandle(Class<SexEnum> type) {
+    public SexEnumTypeHandle(Class<SexEnum> type) {
         if (type == null)
             throw new IllegalArgumentException("Type argument cannot be null");
         this.type = type;

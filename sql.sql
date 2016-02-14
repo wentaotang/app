@@ -1,3 +1,5 @@
+CREATE DATABASE `app` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
 CREATE TABLE `user` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,

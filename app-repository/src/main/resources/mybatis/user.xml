@@ -2,7 +2,5 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hgcode.repository.UserRepository">
-    <insert id="saveEnum" parameterType="UserEntity">
-        INSERT INTO user(name,sex) VALUES (#{name},#{sexEnum})
-    </insert>
+
 </mapper>
