@@ -1,7 +1,6 @@
 package com.hgcode.domain;
 
 import com.hgcode.SexEnum;
-import com.sun.xml.internal.bind.annotation.OverrideAnnotationOf;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.*;
