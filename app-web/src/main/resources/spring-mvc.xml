@@ -15,24 +15,21 @@
 
     <context:annotation-config/>
 
-    <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager">
+    <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
-            <!-- 将StringHttpMessageCOnverter的默认编码设为UTF-8 -->
-            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
-                <constructor-arg value="UTF-8" />
+            <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+                <property name="supportedMediaTypes" value="text/html;charset=UTF-8"/>
+                <property name="features">
+                    <array>
+                        <value>WriteMapNullValue</value>
+                        <value>WriteNullStringAsEmpty</value>
+                        <value>WriteNullNumberAsZero</value>
+                    </array>
+                </property>
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-    <!-- REST中根据URL后缀自动判定Content-Type及相应的View -->
-    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
-        <property name="mediaTypes" >
-            <value>
-                json=application/json
-                xml=application/xml
-            </value>
-        </property>
-    </bean>
 
     <!-- 定义JSP文件的位置 -->
     <bean id="viewResolver" class="jetbrick.template.web.springmvc.JetTemplateViewResolver">
@@ -52,9 +49,9 @@
     <!-- 项目首页    即/web-inf/views/index.html -->
     <mvc:view-controller path="/" view-name="login"/>
 
-    <mvc:interceptors>
+    <!--<mvc:interceptors>
         <bean class="com.hgcode.inteceptor.LoginInteceptor"/>
-    </mvc:interceptors>
+    </mvc:interceptors>-->
 
 
 </beans>
