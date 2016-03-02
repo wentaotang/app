@@ -37,6 +37,11 @@
 			<artifactId>fastjson</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -46,12 +51,18 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>9.3.7.v20160115</version>
 				<configuration>
+					<httpConnector>
+						<!--启动端口-->
+						<port>8080</port>
+					</httpConnector>
 					<scanIntervalSeconds>1</scanIntervalSeconds>
+					<reload>true</reload>
 					<stopPort>9966</stopPort>
 					<stopKey>foo</stopKey>
 					<webAppConfig>
 						<contextPath>/</contextPath>
 					</webAppConfig>
+
 				</configuration>
 			</plugin>
 		</plugins>

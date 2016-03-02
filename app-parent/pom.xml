@@ -116,6 +116,13 @@
 				<version>${servlet.version}</version>
 			</dependency>
 			<!--模板引擎相关的jar begin -->
+			<!--shiro 相关-->
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-spring</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+
 			<!--测试相关的jar begin -->
 			<dependency>
 				<groupId>junit</groupId>
