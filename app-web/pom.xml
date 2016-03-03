@@ -55,8 +55,8 @@
 						<!--启动端口-->
 						<port>8080</port>
 					</httpConnector>
+                    <reload>automatic</reload>
 					<scanIntervalSeconds>1</scanIntervalSeconds>
-					<reload>true</reload>
 					<stopPort>9966</stopPort>
 					<stopKey>foo</stopKey>
 					<webAppConfig>
