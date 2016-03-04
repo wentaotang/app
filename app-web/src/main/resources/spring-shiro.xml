@@ -45,5 +45,5 @@
         <property name="securityManager" ref="securityManager"/>
     </bean>
 
-    <bean id="myRealm" class="com.hgcode.inteceptor.MyShiroRealm"></bean>
+    <bean id="myRealm" class="com.hgcode.shiro.MyShiroRealm"></bean>
 </beans>
