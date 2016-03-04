@@ -41,7 +41,7 @@
         <jetbrick-template.version>2.0.12</jetbrick-template.version>
         <mybatis-paginator.version>1.2.17</mybatis-paginator.version>
         <mybatis-mapper.version>3.3.4</mybatis-mapper.version>
-        <jedis.version>2.7.3</jedis.version>
+        <jedis.version>2.8.0</jedis.version>
         <persistence-api.version>1.0.2</persistence-api.version>
         <servlet.version>3.1.0</servlet.version>
 
