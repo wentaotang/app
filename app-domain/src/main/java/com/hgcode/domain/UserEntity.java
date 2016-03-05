@@ -1,6 +1,7 @@
 package com.hgcode.domain;
 
-import com.hgcode.SexEnum;
+import com.hgcode.util.SysConstants;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.*;
@@ -14,9 +15,15 @@ public class UserEntity {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
-    @Column(name="sex")
-    private SexEnum sexEnum;
+    @Column(name = "user_name")
+    private String userName;
+    @Column(name="password")
+    private String password;
+    /**
+     * 盐值
+     */
+    @Column(name="salt")
+    private String salt;
 
     public Integer getId() {
         return id;
@@ -26,20 +33,28 @@ public class UserEntity {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public SexEnum getSexEnum() {
-        return sexEnum;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSexEnum(SexEnum sexEnum) {
-        this.sexEnum = sexEnum;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getSalt() {
+        return RandomStringUtils.random(SysConstants.SALT_LENGTH,true,true);
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 
     @Override
