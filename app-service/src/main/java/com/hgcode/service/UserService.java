@@ -9,4 +9,11 @@ import java.util.List;
  */
 public interface UserService extends IService<UserEntity>{
     List<UserEntity> selectByCountry(UserEntity country, int page, int pagesize);
+
+    /**
+     *
+     * @param userName
+     * @return
+     */
+    UserEntity findByUserName(String userName);
 }

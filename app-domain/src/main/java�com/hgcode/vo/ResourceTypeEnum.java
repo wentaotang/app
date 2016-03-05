@@ -1,16 +1,15 @@
-package com.hgcode;
+package com.hgcode.vo;
 
 /**
  * Created by wentao on 16/1/31.
  */
-public enum SexEnum {
+public enum ResourceTypeEnum {
 
-    MALE("1"),FEMAL("2");
+    MENU("menu"),BUTTON("button");
 
     private  String value;
-    private  String text;
 
-    SexEnum(String value){
+    ResourceTypeEnum(String value){
         this.value=value;
     }
 

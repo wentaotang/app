@@ -1,4 +1,4 @@
-import com.hgcode.SexEnum;
+import com.hgcode.vo.SexEnum;
 import com.hgcode.domain.UserEntity;
 import com.hgcode.repository.UserRepository;
 import org.junit.Before;

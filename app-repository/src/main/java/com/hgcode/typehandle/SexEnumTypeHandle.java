@@ -1,6 +1,6 @@
 package com.hgcode.typehandle;
 
-import com.hgcode.SexEnum;
+import com.hgcode.vo.SexEnum;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 import java.sql.CallableStatement;
