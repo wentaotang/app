@@ -12,4 +12,10 @@
         <typeHandler javaType="com.hgcode.vo.SexEnum" handler="com.hgcode.typehandle.SexEnumTypeHandle"/>
     </typeHandlers>
 
+    <plugins>
+        <plugin interceptor="com.github.miemiedev.mybatis.paginator.OffsetLimitInterceptor">
+            <property name="dialectClass" value="com.github.miemiedev.mybatis.paginator.dialect.MySQLDialect"/>
+        </plugin>
+    </plugins>
+
 </configuration>

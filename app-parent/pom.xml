@@ -40,16 +40,11 @@
                 <artifactId>mybatis</artifactId>
                 <version>${mybatis.version}</version>
             </dependency>
-            <dependency>
-                <groupId>tk.mybatis</groupId>
-                <artifactId>mapper</artifactId>
-                <version>${mybatis-mapper.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper</artifactId>
-                <version>4.1.1</version>
-            </dependency>
+			<dependency>
+				<groupId>com.github.miemiedev</groupId>
+				<artifactId>mybatis-paginator</artifactId>
+				<version>${mybatis-paginator.version}</version>
+			</dependency>
             <!--mybatis相关的jar   end-->
             <!-- 数据库及连接池相关的jar   begin -->
             <dependency>

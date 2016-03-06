@@ -1,6 +1,6 @@
 import com.hgcode.vo.SexEnum;
-import com.hgcode.domain.UserEntity;
-import com.hgcode.repository.UserRepository;
+import com.hgcode.domain.User;
+import com.hgcode.repository.mybatis.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,15 +33,15 @@ public class DbTest {
     @Test
     public void test1(){
 
-        List<UserEntity> list=userRepository.selectAll();
-        for(UserEntity user:list){
+        List<User> list=userRepository.selectAll();
+        for(User user:list){
             System.out.println(user.getName());
         }
     }
 
     @Test
     public void addTest(){
-        UserEntity userEntity=new UserEntity();
+        User userEntity=new User();
         userEntity.setName("小乖3");
         userEntity.setSexEnum(SexEnum.FEMAL);
         userRepository.insert(userEntity);
@@ -49,7 +49,7 @@ public class DbTest {
 
     @Test
     public void updateTest(){
-        UserEntity userEntity=userRepository.selectByPrimaryKey(7);
+        User userEntity=userRepository.selectByPrimaryKey(7);
         userEntity.setSexEnum(SexEnum.MALE);
         userRepository.updateByPrimaryKey(userEntity);
     }

@@ -9,14 +9,20 @@ import javax.persistence.*;
 /**
  * Created by wentao on 2016/1/9.
  */
-@Table(name = "user")
-public class UserEntity {
+@Table(name = "sys_user")
+public class User {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    /**
+     * 用户名
+     */
     @Column(name = "user_name")
     private String userName;
+    /**
+     * 密码
+     */
     @Column(name="password")
     private String password;
     /**

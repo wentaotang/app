@@ -46,17 +46,9 @@
             <groupId>javax.persistence</groupId>
             <artifactId>persistence-api</artifactId>
         </dependency>
-       <!-- <dependency>
+        <dependency>
             <groupId>com.github.miemiedev</groupId>
             <artifactId>mybatis-paginator</artifactId>
-        </dependency>-->
-        <dependency>
-            <groupId>tk.mybatis</groupId>
-            <artifactId>mapper</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper</artifactId>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>

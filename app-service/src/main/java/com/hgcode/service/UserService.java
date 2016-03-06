@@ -1,19 +1,17 @@
 package com.hgcode.service;
 
-import com.hgcode.domain.UserEntity;
+import com.hgcode.domain.User;
 
 import java.util.List;
 
 /**
  * Created by wentao on 2016/1/9.
  */
-public interface UserService extends IService<UserEntity>{
-    List<UserEntity> selectByCountry(UserEntity country, int page, int pagesize);
-
+public interface UserService {
     /**
      *
      * @param userName
      * @return
      */
-    UserEntity findByUserName(String userName);
+    User findByUserName(String userName);
 }

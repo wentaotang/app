@@ -2,24 +2,33 @@ package com.hgcode.domain;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Set;
 
 /**
  * Created by wentao on 16/3/4.
  */
-public class RoleEntity {
+@Table(name = "sys_role")
+public class Role {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    /**
+     * 角色名称
+     */
     @Column(name = "role_name")
     private String roleName;
+    /**
+     * 角色描述
+     */
     @Column(name = "role_desc")
     private String roleDesc;
+    /**
+     * 资源IDs
+     */
+    @Column(name = "resource_ids")
+    private String resourceIds;
 
     public Integer getId() {
         return id;
