@@ -2,6 +2,7 @@ package com.hgcode.service;
 
 import com.hgcode.domain.UserRole;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -13,5 +14,5 @@ public interface UserRoleService{
      * @param useId
      * @return
      */
-    Set<String> findRoles(Integer useId);
+    List<String> findRoles(Integer useId);
 }

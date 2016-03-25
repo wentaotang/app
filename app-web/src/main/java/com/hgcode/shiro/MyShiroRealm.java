@@ -1,6 +1,8 @@
 package com.hgcode.shiro;
 
+import com.hgcode.domain.Resource;
 import com.hgcode.domain.User;
+import com.hgcode.service.RoleService;
 import com.hgcode.service.UserRoleService;
 import com.hgcode.service.UserService;
 import org.apache.shiro.authc.*;
@@ -10,6 +12,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -21,6 +24,8 @@ public class MyShiroRealm extends AuthorizingRealm {
     private UserService userService;
     @Autowired
     private UserRoleService userRoleService;
+    @Autowired
+    private RoleService roleService;
 
     /**
      * 授权信息
@@ -32,10 +37,14 @@ public class MyShiroRealm extends AuthorizingRealm {
         String username=(String)principals.fromRealm(getName()).iterator().next();
         User user=userService.findByUserName(username);
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-        /*Set<String> roles=.findRoles(user.getId());
-        authorizationInfo.setRoles();
-        authorizationInfo.setStringPermissions(role.getPermissions());*/
-
+        List<String> roles=userRoleService.findRoles(user.getId());
+        for(String role:roles){
+            authorizationInfo.addRole(role);
+            List<Resource> resourceList=null;//roleService.findResources(role);
+            for(Resource resource:resourceList){
+                authorizationInfo.addStringPermission(resource.getPermission());
+            }
+        }
         return authorizationInfo;
     }
 
