@@ -1,9 +1,7 @@
 package com.hgcode.domain;
 
-import com.hgcode.vo.ResourceTypeEnum;
-import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import javax.persistence.*;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * Created by wentao on 16/3/5.

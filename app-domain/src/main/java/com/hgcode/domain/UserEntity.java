@@ -4,12 +4,9 @@ import com.hgcode.util.SysConstants;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import javax.persistence.*;
-
 /**
  * Created by wentao on 2016/1/9.
  */
-@Table(name = "sys_user")
 public class UserEntity {
 
     private Integer id;
