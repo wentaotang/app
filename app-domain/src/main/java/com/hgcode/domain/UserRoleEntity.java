@@ -8,19 +8,15 @@ import javax.persistence.*;
  * Created by wentao on 16/3/5.
  */
 public class UserRoleEntity {
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int id;
     /**
      * 用户ID
      */
-    @Column(name = "user_id")
     private Integer userId;
     /**
      * 角色ID
      */
-    @Column(name = "role_id")
     private Integer roleId;
 
     public Integer getRoleId() {
