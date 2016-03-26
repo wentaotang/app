@@ -1,6 +1,6 @@
 import com.hgcode.vo.SexEnum;
 import com.hgcode.domain.User;
-import com.hgcode.repository.mybatis.UserRepository;
+import com.hgcode.mybatis.repository.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.hgcode.repository.mybatis;
+package com.hgcode.mybatis.repository;
 
 import java.util.List;
 

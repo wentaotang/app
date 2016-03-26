@@ -1,4 +1,4 @@
-package com.hgcode.typehandle;
+package com.hgcode.mybatis.typehandle;
 
 import com.hgcode.vo.SexEnum;
 import org.apache.ibatis.type.BaseTypeHandler;

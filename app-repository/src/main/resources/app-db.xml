@@ -25,7 +25,7 @@
 
     <!--扫描定义的接口-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.hgcode.repository"></property>
+        <property name="basePackage" value="com.hgcode.mybatis.repository"></property>
     </bean>
 
 

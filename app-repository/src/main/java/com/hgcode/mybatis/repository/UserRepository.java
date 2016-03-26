@@ -1,7 +1,6 @@
-package com.hgcode.repository.mybatis;
+package com.hgcode.mybatis.repository;
 
 import com.hgcode.domain.User;
-import com.hgcode.support.MyRepository;
 
 /**
  * Created by wentao on 2016/1/9.
