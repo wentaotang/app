@@ -9,7 +9,7 @@ import javax.persistence.*;
  * Created by wentao on 16/3/5.
  */
 @Table(name = "sys_user_role")
-public class UserRole {
+public class UserRoleEntity {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

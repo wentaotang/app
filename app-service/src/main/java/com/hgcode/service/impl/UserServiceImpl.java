@@ -1,7 +1,7 @@
 package com.hgcode.service.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.hgcode.domain.User;
+import com.hgcode.domain.UserEntity;
 import com.hgcode.mybatis.repository.UserRepository;
 import com.hgcode.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public User findByUserName(String userName) {
+    public UserEntity findByUserName(String userName) {
         return null;
     }
 }

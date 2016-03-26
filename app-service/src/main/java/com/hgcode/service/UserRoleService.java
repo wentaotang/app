@@ -1,9 +1,6 @@
 package com.hgcode.service;
 
-import com.hgcode.domain.UserRole;
-
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by wentao on 16/3/5.

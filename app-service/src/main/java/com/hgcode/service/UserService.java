@@ -1,8 +1,6 @@
 package com.hgcode.service;
 
-import com.hgcode.domain.User;
-
-import java.util.List;
+import com.hgcode.domain.UserEntity;
 
 /**
  * Created by wentao on 2016/1/9.
@@ -13,5 +11,5 @@ public interface UserService {
      * @param userName
      * @return
      */
-    User findByUserName(String userName);
+    UserEntity findByUserName(String userName);
 }
