@@ -68,7 +68,7 @@
         <!-- 配置防SQL注入 -->
         <property name="filters" value="stat,wall"/>
     </bean>
-
+    <!-- 这个需要消耗一定的性能，测试环境使用-->
     <bean id="dataSource" class="net.sf.log4jdbc.sql.jdbcapi.DataSourceSpy">
         <constructor-arg ref="dataSourceSpied" />
     </bean>

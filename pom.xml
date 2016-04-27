@@ -16,6 +16,7 @@
         <module>app-service</module>
         <module>app-web</module>
         <module>app-business</module>
+        <module>app-cache</module>
     </modules>
 
     <repositories>
