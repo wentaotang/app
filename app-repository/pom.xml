@@ -3,10 +3,9 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>app-parent</artifactId>
+        <artifactId>app</artifactId>
         <groupId>com.hgcode</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../app-parent/</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>app-repository</artifactId>
@@ -15,7 +14,7 @@
         <dependency>
             <groupId>com.hgcode</groupId>
             <artifactId>app-domain</artifactId>
-            <version>${project.version}</version>
+            <version>${parent.version}</version>
         </dependency>
 
         <dependency>
