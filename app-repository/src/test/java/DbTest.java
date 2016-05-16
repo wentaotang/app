@@ -27,6 +27,14 @@ public class DbTest {
 
     @Test
     public void addTest(){
+      UserEntity entity=new UserEntity();
+        entity.setUserName("twt");
+        userRepository.insert(entity);
+        System.out.println(entity);
+    }
+
+    @Test
+    public void findByTest(){
         UserEntity userEntity=userRepository.selectByPrimaryKey(1);
         System.out.println(userEntity);
     }
