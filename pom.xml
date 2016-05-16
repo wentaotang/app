@@ -87,6 +87,11 @@
                 <artifactId>mybatis-paginator</artifactId>
                 <version>${mybatis-paginator.version}</version>
             </dependency>
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper</artifactId>
+                <version>3.3.8</version>
+            </dependency>
 
             <!--mybatis相关的jar   end-->
             <!-- 数据库及连接池相关的jar   begin -->

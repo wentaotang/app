@@ -1,27 +1,30 @@
 package com.hgcode.domain;
 
 import com.hgcode.util.SysConstants;
+import jdk.internal.org.objectweb.asm.tree.analysis.Value;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import javax.persistence.*;
 
 /**
  * Created by wentao on 2016/1/9.
  */
+@Entity
+@Table(name="user")
 public class UserEntity {
 
+    @Column(name="id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     /**
      * 用户名
      */
+    @Column(name = "name")
     private String userName;
-    /**
-     * 密码
-     */
-    private String password;
-    /**
-     * 盐值
-     */
-    private String salt;
+
 
     public Integer getId() {
         return id;
@@ -37,22 +40,6 @@ public class UserEntity {
 
     public void setUserName(String userName) {
         this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getSalt() {
-        return RandomStringUtils.random(SysConstants.SALT_LENGTH,true,true);
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
     }
 
     @Override
