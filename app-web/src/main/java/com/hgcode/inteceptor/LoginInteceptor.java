@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginInteceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(javax.servlet.http.HttpServletRequest httpServletRequest, javax.servlet.http.HttpServletResponse httpServletResponse, Object o) throws Exception {
-        return false;
+        return true;
     }
 
     @Override
