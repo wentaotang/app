@@ -1,11 +1,6 @@
 package com.hgcode.domain;
 
-import com.hgcode.util.SysConstants;
-import jdk.internal.org.objectweb.asm.tree.analysis.Value;
-import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.builder.ToStringBuilder;
-
 import javax.persistence.*;
 
 /**
