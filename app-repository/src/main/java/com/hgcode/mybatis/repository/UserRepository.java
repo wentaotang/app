@@ -7,5 +7,6 @@ import tk.mybatis.mapper.common.Mapper;
 /**
  * Created by wentao on 2016/1/9.
  */
+@Repository
 public interface UserRepository extends Mapper<UserEntity>{
 }
