@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
  * Created by wentao on 2016/1/9.
  */
-@Service
+@Service(value = "userService")
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -19,5 +19,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserEntity findByUserName(String userName) {
         return null;
+    }
+
+    @Override
+    public void save(UserEntity userEntity) {
+        userRepository.insert(userEntity);
     }
 }

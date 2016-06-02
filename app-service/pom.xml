@@ -21,6 +21,10 @@
             <artifactId>app-cache</artifactId>
             <version>${parent.version}</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
     </dependencies>
 
 

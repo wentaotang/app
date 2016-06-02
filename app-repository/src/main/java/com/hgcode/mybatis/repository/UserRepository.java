@@ -1,6 +1,7 @@
 package com.hgcode.mybatis.repository;
 
 import com.hgcode.domain.UserEntity;
+import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
 
 /**
