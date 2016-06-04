@@ -37,6 +37,8 @@ public class DbTest {
     public void findByTest(){
         UserEntity userEntity=userRepository.selectByPrimaryKey(1);
         System.out.println(userEntity);
+
+        System.out.println("4rwrwerwerwer");
     }
 
 
