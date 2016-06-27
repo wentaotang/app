@@ -11,13 +11,11 @@
 
     <description>持久层配置</description>
 
-
     <context:component-scan base-package="com.hgcode.mybatis.repository">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
     </context:component-scan>
 
-    <!--加载properties文件-->
-    <context:property-placeholder ignore-resource-not-found="true" location="classpath*:/jdbc.properties" />
+
     <!-- MyBatis配置 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
@@ -25,12 +23,10 @@
         <property name="typeAliasesPackage" value="com.hgcode.domain" />
         <!-- 显式指定mybatis sql xml文件位置 -->
         <property name="mapperLocations" value="classpath:/mybatis/*.xml" />
-        <!--mybatis 全局配置文件-->
-        <property name="configLocation" value="classpath:/mybatis-config.xml"/>
     </bean>
 
     <!--扫描定义的接口-->
-    <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.hgcode.mybatis.repository"></property>
     </bean>
 
