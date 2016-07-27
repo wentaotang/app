@@ -22,12 +22,12 @@ import java.util.List;
  */
 public class MyShiroRealm extends AuthorizingRealm {
 
-    @Autowired
+    /*@Autowired
     private UserService userService;
     @Autowired
     private UserRoleService userRoleService;
     @Autowired
-    private RoleService roleService;
+    private RoleService roleService;*/
 
     /**
      * 授权信息
@@ -36,7 +36,7 @@ public class MyShiroRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        String username=(String)principals.fromRealm(getName()).iterator().next();
+        /*String username=(String)principals.fromRealm(getName()).iterator().next();
         UserEntity user=userService.findByUserName(username);
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         List<String> roles=userRoleService.findRoles(user.getId());
@@ -47,7 +47,8 @@ public class MyShiroRealm extends AuthorizingRealm {
                 authorizationInfo.addStringPermission(resource.getPermission());
             }
         }
-        return authorizationInfo;
+        return authorizationInfo;*/
+        return null;
     }
 
 

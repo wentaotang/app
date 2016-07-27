@@ -13,11 +13,5 @@ import java.util.List;
 @Service
 public class UserRoleServiceImpl implements UserRoleService {
 
-    @Autowired
-    private UserRoleRepository userRoleRepository;
 
-    @Override
-    public List<String> findRoles(Integer userId) {
-       return userRoleRepository.findRoles(userId);
-    }
 }
