@@ -16,8 +16,5 @@ public class UserController {
         return "user/list";
     }
 
-    @RequestMapping(value = "/demo",method = RequestMethod.GET)
-    public String demo(){
-        return "demo";
-    }
+
 }
