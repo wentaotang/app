@@ -11,8 +11,7 @@
         <div class="ibox-content">
             <div class="row row-lg">
                 <div class="col-sm-12">
-
-                            <div class="btn-group hidden-xs" id="exampleTableEventsToolbar" role="group">
+                            <div class="btn-group hidden-xs" id="userToolbar" role="group">
                                 <button type="button" class="btn btn-outline btn-default">
                                     <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
                                 </button>
@@ -23,13 +22,13 @@
                                     <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
                                 </button>
                             </div>
-                            <table id="exampleTableEvents" data-height="500" data-striped="true" data-mobile-responsive="true">
+                            <table id="userTable" data-height="760" data-striped="true"  >
                                 <thead>
                                 <tr>
                                     <th data-field="state" data-checkbox="true"></th>
                                     <th data-field="id">ID</th>
-                                    <th data-field="name">名称</th>
-                                    <th data-field="price">价格</th>
+                                    <th data-field="userName">名称</th>
+                                    <th data-field="userName">价格</th>
                                 </tr>
                                 </thead>
                             </table>
@@ -48,15 +47,23 @@
     (function(document, window, $) {
         'use strict';
         (function() {
-            $('#exampleTableEvents').bootstrapTable({
-                url: "${CONTEXT_PATH}/static/hplus4.1.0/js/demo/bootstrap_table_test.json",
+            $('#userTable').bootstrapTable({
+                url: "${CONTEXT_PATH}/user/list",
+                method:"post",
+                contentType:"application/json",
                 search: true,
                 pagination: true,
                 showRefresh: true,
                 showToggle: true,
                 showColumns: true,
                 iconSize: 'outline',
-                toolbar: '#exampleTableEventsToolbar',
+                toolbar: '#userToolbar',
+                striped:true,
+                smartDisplay:false,
+                sidePagination:"server",
+                onPageChange:function(num,pageSize){
+                    $('#userTable').bootstrapTable('refresh');
+                },
                 icons: {
                     refresh: 'glyphicon-repeat',
                     toggle: 'glyphicon-list-alt',
