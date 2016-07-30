@@ -1,4 +1,4 @@
-package com.hgcode;
+package com.hgcode.context;
 
 import com.hgcode.domain.UserEntity;
 
