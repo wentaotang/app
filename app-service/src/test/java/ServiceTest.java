@@ -31,15 +31,14 @@ public class ServiceTest {
         UserEntity entity = new UserEntity();
         entity.setUserName("twt");
         userService.save(entity);
-        try{
+        /*try{
             int tmp=1/0;
          }catch (Exception e){
             e.printStackTrace();;
         }
         UserEntity entity1 = new UserEntity();
         entity1.setUserName("twt12");
-        userService.save(entity1);
-        System.out.println(entity1);
+        userService.save(entity1);*/
     }
 
 
