@@ -9,11 +9,11 @@ import java.util.List;
  * Time: 17:36
  * To change this template use File | Settings | File Templates.
  */
-public class GridJson<T> {
+public class JSONGrid<T> {
     private long total;
     private List<T> rows;
 
-    public GridJson(List<T> rows, long total) {
+    public JSONGrid(List<T> rows, long total) {
         this.rows = rows;
         this.total = total;
     }
@@ -34,6 +34,6 @@ public class GridJson<T> {
         this.rows = rows;
     }
 
-    public GridJson() {
+    public JSONGrid() {
     }
 }
