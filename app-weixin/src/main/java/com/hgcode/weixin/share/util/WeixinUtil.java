@@ -1,6 +1,10 @@
 package com.hgcode.weixin.share.util;
 
 import com.alibaba.fastjson.JSON;
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import com.hgcode.weixin.share.response.AccessTokenResponse;
 import com.hgcode.weixin.share.response.WebAccessTokenResponse;
 import com.hgcode.weixin.share.response.WeiXinUserInfoResponse;
@@ -10,8 +14,10 @@ import okhttp3.Response;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by wentao on 16/8/14.
@@ -20,18 +26,39 @@ public class WeixinUtil {
 
     private static final Logger log= LoggerFactory.getLogger(WeixinUtil.class);
 
+    private static final String ACCESS_TOKEN="access_token";
+
     /**
      * 获取微信 access_token
      * @param appid
      * @return
      */
-    public static AccessTokenResponse getAccessToken(String appid) {
-        String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + appid + "&secret=APPSECRET";
-        String result=buildResponse(url);
-        if(StringUtils.isBlank(result))
-            return null;
-        return (AccessTokenResponse) JSON.parse(buildResponse(result));
+    private  static String getAccessToken(String appid) {
+
+
+        Cache<String, String> cache = CacheBuilder.newBuilder().expireAfterWrite(7000, TimeUnit.SECONDS).build();
+        try {
+            String resultVal = cache.get(ACCESS_TOKEN, new Callable<String>() {
+                public String call() {
+                    String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + appid + "&secret=APPSECRET";
+                    String result=buildResponse(url);
+                    if(StringUtils.isBlank(result))
+                        return null;
+                    AccessTokenResponse accessTokenResponse=JSON.parseObject(buildResponse(result),AccessTokenResponse.class);
+                    if(accessTokenResponse.getErrcode()!=null){
+                        return accessTokenResponse.getAccess_token();
+                    }
+                    return "";
+                }
+            });
+            return resultVal;
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+            return "";
+        }
     }
+
+
 
     public static WebAccessTokenResponse getWebAccessToken(String appid, String secret, String code){
         String url ="https://api.weixin.qq.com/sns/oauth2/access_token?appid="+appid+"&secret="+secret+"&code="+code+"&grant_type=authorization_code";
@@ -56,6 +83,7 @@ public class WeixinUtil {
             return null;
         return (WeiXinUserInfoResponse) JSON.parse(buildResponse(result));
     }
+
     private static  String buildResponse(String url){
         Request request = new Request.Builder().url(url).build();
         final OkHttpClient client = new OkHttpClient();
@@ -67,7 +95,6 @@ public class WeixinUtil {
             log.error("okhttp处理异常{}",url, e);
             return "";
         }
-    }
     }
 
 }
