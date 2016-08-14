@@ -16,6 +16,7 @@
         <module>app-web</module>
         <module>app-cache</module>
         <module>app-shiro</module>
+        <module>app-weixin</module>
     </modules>
 
     <repositories>
