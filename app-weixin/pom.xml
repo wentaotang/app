@@ -12,4 +12,14 @@
     <artifactId>app-weixin</artifactId>
 
 
+    <dependencies>
+        <dependency>
+            <groupId>com.hgcode</groupId>
+            <artifactId>app-util</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+    </dependencies>
+
+
 </project>
