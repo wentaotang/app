@@ -7,8 +7,6 @@ import com.hgcode.weixin.share.response.WeiXinUserInfoResponse;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
@@ -16,14 +14,8 @@ import java.io.IOException;
  * Created by wentao on 16/8/14.
  */
 public class WeixinUtil {
-
-    private static final Logger log = LoggerFactory.getLogger(WeixinUtil.class);
-
-    private static final String ACCESS_TOKEN = "access_token";
-
     /**
-     * 获取微信 access_token
-     *
+     * 获取access_token
      * @param appid
      * @return
      */

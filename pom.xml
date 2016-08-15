@@ -288,7 +288,7 @@
                     <include>**/*</include>
                 </includes>
             </resource>
-            <!-- 设置对auto-config.properties，jdbc.properties进行过虑，即这些文件中的${key}会被替换掉为真正的值 -->
+            <!-- 设置对jdbc.properties等文件进行过虑，即这些文件中的${key}会被替换掉为真正的值 -->
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
