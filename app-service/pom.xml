@@ -14,12 +14,12 @@
         <dependency>
             <groupId>com.hgcode</groupId>
             <artifactId>app-repository</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>com.hgcode</groupId>
             <artifactId>app-cache</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

@@ -10,6 +10,7 @@
        default-lazy-init="true">
 
     <description>持久层配置</description>
+    <context:property-placeholder ignore-resource-not-found="true" location="classpath*:/*.properties" />
 
     <context:component-scan base-package="com.hgcode.mybatis.repository">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
@@ -47,8 +48,8 @@
 
         <!-- 配置初始化大小、最小、最大 -->
         <property name="initialSize" value="50"/>
-        <property name="minIdle" value="${jdbc.pool.maxIdle}"/>
-        <property name="maxActive" value="${jdbc.pool.maxActive}"/>
+        <property name="minIdle" value="100"/>
+        <property name="maxActive" value="100"/>
 
         <!-- 配置获取连接等待超时的时间 -->
         <property name="maxWait" value="60000"/>

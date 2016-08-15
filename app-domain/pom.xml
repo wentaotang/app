@@ -15,7 +15,7 @@
         <dependency>
             <groupId>com.hgcode</groupId>
             <artifactId>app-util</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
 
         <dependency>
