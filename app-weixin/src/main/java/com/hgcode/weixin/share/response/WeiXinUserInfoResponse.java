@@ -3,7 +3,7 @@ package com.hgcode.weixin.share.response;
 /**
  * Created by wentao on 16/8/14.
  */
-public class WeiXinUserInfoResponse extends WeixinResponse{
+public class WeiXinUserInfoResponse extends BaseResponse {
     private String openid;
     private String nickname;
     private String sex;

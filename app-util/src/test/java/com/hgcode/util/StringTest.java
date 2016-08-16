@@ -1,5 +1,6 @@
 package com.hgcode.util;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Test;
 
 
@@ -11,7 +12,7 @@ public class StringTest {
 
     @Test
     public void test(){
-        String str="1,2,3,4,5";
-        System.out.println();
+        String str="123456";
+        System.out.println(DigestUtils.sha1Hex(str));
     }
 }

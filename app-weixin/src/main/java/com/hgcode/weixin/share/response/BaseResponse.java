@@ -3,7 +3,7 @@ package com.hgcode.weixin.share.response;
 /**
  * Created by wentao on 16/8/14.
  */
-public abstract class WeixinResponse {
+public abstract class BaseResponse {
     /**
      * 错误编码
      */

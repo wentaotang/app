@@ -4,7 +4,7 @@ package com.hgcode.weixin.share.response;
  * 获取access_token 相应实体
  * Created by wentao on 16/8/14.
  */
-public class AccessTokenResponse extends WeixinResponse{
+public class AccessTokenResponse extends BaseResponse {
     /**
      * access_token
      */
