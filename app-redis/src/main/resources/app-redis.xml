@@ -5,7 +5,13 @@
        xsi:schemaLocation="
   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="jedisFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"/>
+    <bean id="jedisFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+          p:database="" p:hostName="" p:password="" p:poolConfig-ref="" p:port="" p:usePool="true"/>
+
+     <bean id="pollConfig" class="org.apache.commons.pool2.impl.GenericObjectPoolConfig">
+
+     </bean>
+
     <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
           p:connectionFactory="jedisFactory"/>
 </beans>
