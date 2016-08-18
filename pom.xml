@@ -17,6 +17,7 @@
         <module>app-cache</module>
         <module>app-shiro</module>
         <module>app-weixin</module>
+        <module>app-redis</module>
     </modules>
 
     <repositories>
@@ -28,24 +29,24 @@
     </repositories>
 
     <properties>
-        <spring.version>4.3.1.RELEASE</spring.version>
-        <mysql.version>5.1.36</mysql.version>
-        <druid.version>1.0.15</druid.version>
-        <mybatis.version>3.3.0</mybatis.version>
-        <mybatis-spring.version>1.2.3</mybatis-spring.version>
+        <spring.version>4.3.2.RELEASE</spring.version>
+        <mysql.version>6.0.3</mysql.version>
+        <druid.version>1.0.24</druid.version>
+        <mybatis.version>3.4.1</mybatis.version>
+        <mybatis-spring.version>1.3.0</mybatis-spring.version>
         <log4jdbc-log4j2.version>1.16</log4jdbc-log4j2.version>
-        <logback.version>1.1.3</logback.version>
+        <logback.version>1.1.7</logback.version>
         <mybatis-paginator.version>1.2.17</mybatis-paginator.version>
         <fastjson.version>1.2.16</fastjson.version>
         <jetty.version>8.1.16.v20140903</jetty.version>
         <commons-lang3.version>3.4</commons-lang3.version>
         <junit.version>4.12</junit.version>
         <jetbrick-template.version>2.0.12</jetbrick-template.version>
-        <jedis.version>2.8.0</jedis.version>
         <persistence-api.version>1.0.2</persistence-api.version>
         <servlet.version>3.1.0</servlet.version>
         <shiro.version>1.2.4</shiro.version>
-        <httpclient.version>4.5.2</httpclient.version>
+        <jedis.version>2.9.0</jedis.version>
+        <spring-data-redis.version>1.7.2.RELEASE</spring-data-redis.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
@@ -83,16 +84,6 @@
                 <artifactId>mybatis</artifactId>
                 <version>${mybatis.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.github.miemiedev</groupId>
-                <artifactId>mybatis-paginator</artifactId>
-                <version>${mybatis-paginator.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>tk.mybatis</groupId>
-                <artifactId>mapper</artifactId>
-                <version>3.3.8</version>
-            </dependency>
 
             <!--mybatis相关的jar   end-->
             <!-- 数据库及连接池相关的jar   begin -->
@@ -115,6 +106,11 @@
                 <groupId>javax.persistence</groupId>
                 <artifactId>persistence-api</artifactId>
                 <version>${persistence-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-redis</artifactId>
+                <version>${spring-data-redis.version}</version>
             </dependency>
 
 
