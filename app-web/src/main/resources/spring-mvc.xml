@@ -13,25 +13,28 @@
         <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController"/>
     </context:component-scan>
 
-    <context:annotation-config/>
-
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
             <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
-                <property name="supportedMediaTypes" value="text/html;charset=UTF-8"/>
-                <property name="features">
-                    <array>
-                        <value>WriteMapNullValue</value>
-                        <value>WriteNullStringAsEmpty</value>
-                        <value>WriteNullNumberAsZero</value>
-                    </array>
-                </property>
+                <property name="fastJsonConfig"  ref="fastJsonConfig"/>
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
 
 
-    <!-- 定义JSP文件的位置 -->
+    <bean id="fastJsonConfig" class="com.alibaba.fastjson.support.config.FastJsonConfig">
+        <property name="serializerFeatures" >
+            <array>
+                <value>WriteMapNullValue</value>
+                <value>WriteNullStringAsEmpty</value>
+                <value>WriteNullNumberAsZero</value>
+            </array>
+        </property>
+       <!--  自定义的 过滤器
+       <property name="serializeFilters" ref="myFilter"/>-->
+    </bean>
+    <!--<bean id="myFilter" class="com.hgcode.fastjson.MyValueFilter"/>-->
+    <!-- 定义文件的位置 -->
     <bean id="viewResolver" class="jetbrick.template.web.springmvc.JetTemplateViewResolver">
         <property name="order" value="1" />
         <property name="contentType" value="text/html; charset=utf-8" />
@@ -41,10 +44,8 @@
         <property name="configLocation" value="classpath:jetbrick-template.properties" />
     </bean>
 
-
     <!-- 容器默认的DefaultServletHandler处理 所有静态内容与无RequestMapping处理的URL -->
     <mvc:default-servlet-handler />
-
 
     <!-- 项目首页    即/web-inf/views/index.html -->
     <mvc:view-controller path="/" view-name="login"/>
@@ -60,6 +61,4 @@
             </props>
         </property>
     </bean> -->
-
-
 </beans>
