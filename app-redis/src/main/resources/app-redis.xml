@@ -6,12 +6,20 @@
   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="jedisFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
-          p:database="" p:hostName="" p:password="" p:poolConfig-ref="" p:port="" p:usePool="true"/>
+          p:poolConfig-ref="jedisPoolConfig" p:usePool="true" p:hostName="${redis.hostname}" p:port="${redis.port}"
+          p:database="${redis.database}" p:timeout="90000"/>
 
-     <bean id="pollConfig" class="org.apache.commons.pool2.impl.GenericObjectPoolConfig">
-
-     </bean>
-
-    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
-          p:connectionFactory="jedisFactory"/>
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="testOnBorrow" value="true"/>
+        <property name="maxTotal" value="${redis.maxActive}"/>
+        <property name="maxIdle" value="${redis.maxIdle}"/>
+        <property name="minIdle" value="${redis.minIdle}"/>
+        <property name="maxWaitMillis" value="${redis.maxWait}"/>
+        <property name="testOnReturn" value="${redis.testOnReturn}"/>
+        <property name="testWhileIdle" value="${redis.testWhileIdle}"/>
+        <property name="timeBetweenEvictionRunsMillis" value="${redis.timeBetweenEvictionRunsMillis}"/>
+        <property name="numTestsPerEvictionRun" value="${redis.numTestsPerEvictionRun}"/>
+        <property name="softMinEvictableIdleTimeMillis" value="${redis.softMinEvictableIdleTimeMillis}"/>
+        <property name="minEvictableIdleTimeMillis" value="${redis.minEvictableIdleTimeMillis}"/>
+    </bean>
 </beans>
