@@ -21,7 +21,7 @@ import java.util.Map;
  */
 public class WeixinUtil {
     /**
-     * 获取access_token
+     * 获取access_token，该接口也有调用次数的限制，最好能把该值存在redis中，设置过期时间
      * @param appid
      * @return
      */
@@ -47,7 +47,7 @@ public class WeixinUtil {
      * Created with IDEA
      * Author: wentao_tang
      * Date: 2016/8/15 17:09
-     * Description: 获取微信用户信息的access_token 是从web授权界面获取的，和普通的access_token不同
+     * Description: 获取微信用户信息的access_token 是从web授权界面获取的，和普通的access_token不同，该方法没有调用次数的限制
      */
     public static WeiXinUserInfoResponse getUserInfo(String access_token, String openid) throws IOException {
         String url = "https://api.weixin.qq.com/sns/userinfo?access_token=" + access_token + "&openid=" + openid + "&lang=zh_CN ";
@@ -55,6 +55,12 @@ public class WeixinUtil {
         return JSON.parseObject(buildResponse(result),WeiXinUserInfoResponse.class);
     }
 
+    /**
+     * 获取jsapi-ticket,这个也不能频繁的调用该接口，最好的方法是存在redis中，设置一个过期时间
+     * @param access_token
+     * @return
+     * @throws IOException
+     */
     public static JsApiTicketResponse getJsApiTicket(String access_token) throws IOException {
         String url="https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="+access_token+"&type=jsapi";
         String result = buildResponse(url);
