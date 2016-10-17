@@ -1,7 +1,6 @@
 package com.hgcode.mybatis.repository;
 
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 /**
