@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="true" xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--这里添加的是Redis，因为使用的是Spring里自带的Redis的Session策略 -->
+	<bean id="jedisConnectionFactory"
+		  class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" p:poolConfig-ref="jedisPoolConfig"
+		  p:usePool="true" p:hostName="${session.redis.hostname}" p:port="${session.redis.port}" p:database="${session.redis.database}" p:timeout="90000" />
+
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<property name="testOnBorrow" value="true"/>
+		<property name="maxTotal" value="${redis.maxActive}"/>
+		<property name="maxIdle" value="${redis.maxIdle}"/>
+		<property name="minIdle" value="${redis.minIdle}"/>
+		<property name="maxWaitMillis" value="${redis.maxWait}"/>
+		<property name="testOnReturn" value="${redis.testOnReturn}" />
+		<property name="testWhileIdle" value="${redis.testWhileIdle}" />
+		<property name="timeBetweenEvictionRunsMillis" value="${redis.timeBetweenEvictionRunsMillis}" />
+		<property name="numTestsPerEvictionRun" value="${redis.numTestsPerEvictionRun}" />
+		<property name="softMinEvictableIdleTimeMillis" value="${redis.softMinEvictableIdleTimeMillis}" />
+		<property name="minEvictableIdleTimeMillis" value="${redis.minEvictableIdleTimeMillis}" />
+	</bean>
+
+	<!-- 这里的是为了下面的 Session策略过滤器提供构造函数传入的参数，因为Session过滤器要依赖该对象来构造，所以创建一个先 -->
+	<bean name="redisOperationsSessionRepository" class="org.springframework.session.data.redis.RedisOperationsSessionRepository">
+		<constructor-arg ref="jedisConnectionFactory"></constructor-arg>
+		 <!--session的有效期 单位： 分钟 -->
+		<property name="defaultMaxInactiveInterval" value="30"/>
+		<!--<property name="defaultSerializer" ref="fastJsonSerializer"></property>-->
+	</bean>
+
+	<!--<bean id="fastJsonSerializer" class="com.hgcode.fastjson.FastJsonSerializer"/>-->
+
+	<!-- 这个是Session策略过滤器，即将容器原有的Session持久化机制，代替为Spring的 Redis持久化Session机制。 -->
+	<!-- 注意，这个名字与 web.xml里的targetBean的下value是要一致的。 -->
+	<bean name="springSession" class="org.springframework.session.web.http.SessionRepositoryFilter">
+		<constructor-arg ref="redisOperationsSessionRepository"></constructor-arg>
+	</bean>
+</beans>

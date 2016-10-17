@@ -14,19 +14,9 @@
         <module>app-domain</module>
         <module>app-service</module>
         <module>app-web</module>
-        <module>app-cache</module>
-        <module>app-shiro</module>
         <module>app-weixin</module>
         <module>app-redis</module>
     </modules>
-
-    <repositories>
-        <repository>
-            <id>aliyun</id>
-            <name>aliyun</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-        </repository>
-    </repositories>
 
     <properties>
         <spring.version>4.3.2.RELEASE</spring.version>
@@ -153,8 +143,6 @@
                 <artifactId>fluent-hc</artifactId>
                 <version>${httpclient.version}</version>
             </dependency>
-
-
             <!--工具类 end -->
 
             <!--模板引擎相关的jar begin -->
@@ -174,6 +162,12 @@
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-spring</artifactId>
                 <version>${shiro.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.session</groupId>
+                <artifactId>spring-session-data-redis</artifactId>
+                <version>1.2.2.RELEASE</version>
             </dependency>
 
             <!--测试相关的jar begin -->
