@@ -7,39 +7,30 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.SerializationException;
 
-public class FastJsonSerializer<E> implements RedisSerializer<E> {
+public class FastJsonSerializer implements RedisSerializer<Object> {
 
     protected static final Logger log = LoggerFactory.getLogger(FastJsonSerializer.class);
 
-    static final byte[] EMPTY_ARRAY = new byte[0];
-
-    private final Class<E> javaType;
-
-    public FastJsonSerializer(Class<E> type) {
-        this.javaType = type;
-    }
-
     @Override
-    public byte[] serialize(E t) throws SerializationException {
-        if (null != t) {
-            return JSON.toJSONBytes(t, SerializerFeature.WriteNullBooleanAsFalse,
+    public byte[] serialize(Object o) throws SerializationException {
+        if (null != o) {
+            return JSON.toJSONBytes(o, SerializerFeature.WriteNullBooleanAsFalse,
                     SerializerFeature.WriteNullNumberAsZero,
                     SerializerFeature.WriteNullStringAsEmpty);
         }
-        return EMPTY_ARRAY;
+        return new byte[0];
     }
 
     @Override
-    public E deserialize(byte[] bytes) throws SerializationException {
+    public Object deserialize(byte[] bytes) throws SerializationException {
         if (bytes == null || bytes.length == 0) {
             return null;
         }
         try {
-            return JSON.parseObject(bytes, this.javaType);
+            return JSON.parseObject(new String(bytes));
         } catch (Exception ex) {
             log.error("", ex);
             return null;
         }
     }
-
 }
