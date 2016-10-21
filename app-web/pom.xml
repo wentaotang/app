@@ -66,7 +66,6 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.3.12.v20160915</version>
                 <configuration>
-                    <scanIntervalSeconds>10</scanIntervalSeconds>
                     <httpConnector>
                         <port>8080</port>
                     </httpConnector>
