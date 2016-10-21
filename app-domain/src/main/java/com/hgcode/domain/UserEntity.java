@@ -2,7 +2,6 @@ package com.hgcode.domain;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import javax.persistence.*;
 
 /**
  * Created by wentao on 2016/1/9.

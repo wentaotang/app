@@ -1,7 +1,6 @@
 package com.hgcode.domain;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
-import javax.persistence.*;
 
 /**
  * 用户和角色关联实体
