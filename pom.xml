@@ -258,6 +258,7 @@
                 <directory>src/main/resources</directory>
                 <includes>
                     <include>*.properties</include>
+                    <include>config/*.properties</include>
                 </includes>
                 <filtering>true</filtering>
             </resource>
