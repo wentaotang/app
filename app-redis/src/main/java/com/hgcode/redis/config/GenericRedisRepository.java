@@ -14,7 +14,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
  * To change this template use File | Settings | File Templates.
  */
 public abstract class GenericRedisRepository<E> implements InitializingBean{
-    protected FastJsonSerializer<E> serializer;
+    protected FastJsonSerializer serializer;
     protected RedisTemplate<String, E> redisTemplate;
     protected Class<E> type;
     protected StringRedisTemplate stringRedisTemplate;
@@ -25,7 +25,7 @@ public abstract class GenericRedisRepository<E> implements InitializingBean{
     public GenericRedisRepository(Class<E> type){
         redisTemplate = new RedisTemplate<String, E>();
         stringRedisTemplate = new StringRedisTemplate();
-        serializer = new FastJsonSerializer<E>(type);
+        serializer = new FastJsonSerializer();
     }
 
     @Override

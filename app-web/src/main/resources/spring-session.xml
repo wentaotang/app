@@ -5,11 +5,11 @@
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!--这里添加的是Redis，因为使用的是Spring里自带的Redis的Session策略 -->
-	<bean id="jedisConnectionFactory"
-		  class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" p:poolConfig-ref="jedisPoolConfig"
+	<bean id="sessionJedisConnectionFactory"
+		  class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" p:poolConfig-ref="sessionJedisPoolConfig"
 		  p:usePool="true" p:hostName="${session.redis.hostname}" p:port="${session.redis.port}" p:database="${session.redis.database}" p:timeout="90000" />
 
-	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+	<bean id="sessionJedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
 		<property name="testOnBorrow" value="true"/>
 		<property name="maxTotal" value="${redis.maxActive}"/>
 		<property name="maxIdle" value="${redis.maxIdle}"/>
@@ -25,13 +25,13 @@
 
 	<!-- 这里的是为了下面的 Session策略过滤器提供构造函数传入的参数，因为Session过滤器要依赖该对象来构造，所以创建一个先 -->
 	<bean name="redisOperationsSessionRepository" class="org.springframework.session.data.redis.RedisOperationsSessionRepository">
-		<constructor-arg ref="jedisConnectionFactory"></constructor-arg>
+		<constructor-arg ref="sessionJedisConnectionFactory"></constructor-arg>
 		 <!--session的有效期 单位： 分钟 -->
 		<property name="defaultMaxInactiveInterval" value="30"/>
-		<!--<property name="defaultSerializer" ref="fastJsonSerializer"></property>-->
+		<property name="defaultSerializer" ref="fastJsonSerializer"></property>
 	</bean>
 
-	<!--<bean id="fastJsonSerializer" class="com.hgcode.fastjson.FastJsonSerializer"/>-->
+	<bean id="fastJsonSerializer" class="com.hgcode.fastjson.FastJsonSerializer"/>
 
 	<!-- 这个是Session策略过滤器，即将容器原有的Session持久化机制，代替为Spring的 Redis持久化Session机制。 -->
 	<!-- 注意，这个名字与 web.xml里的targetBean的下value是要一致的。 -->

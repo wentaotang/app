@@ -242,17 +242,13 @@
                     <artifactId>maven-dependency-plugin</artifactId>
                     <version>2.10</version>
                 </plugin>
+
+
+
             </plugins>
         </pluginManagement>
 
         <resources>
-            <!-- 先指定 src/main/resources下所有文件及文件夹为资源文件 -->
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>**/*</include>
-                </includes>
-            </resource>
             <!-- 设置对jdbc.properties等文件进行过虑，即这些文件中的${key}会被替换掉为真正的值 -->
             <resource>
                 <directory>src/main/resources</directory>
