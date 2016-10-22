@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.hgcode.fastjson;
 
 import com.alibaba.fastjson.JSON;
@@ -11,8 +8,8 @@ import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.SerializationException;
 
 /**
- * @author qijianbin@hanyalicai.com
- *
+ * 
+ * @author wentao
  */
 public class FastJsonSerializer implements RedisSerializer<Object> {
 	protected static final Logger log = LoggerFactory.getLogger(FastJsonSerializer.class);
@@ -25,7 +22,6 @@ public class FastJsonSerializer implements RedisSerializer<Object> {
 					SerializerFeature.WriteNullNumberAsZero,
 					SerializerFeature.WriteNullStringAsEmpty,
 					SerializerFeature.WriteMapNullValue);
-			//return JSON.toJSONBytes(t);
 		}
 		return EMPTY_ARRAY;
 	}
