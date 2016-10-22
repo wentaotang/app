@@ -18,5 +18,11 @@ public enum SexEnum {
         return value;
     }
 
+	public String getText() {
+		return text;
+	}
+    
+    
+
 
 }
