@@ -8,7 +8,8 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath*:/applicationContext.xml,classpath*:spring-session.xml
+            classpath*:/applicationContext.xml,
+            classpath*:/spring-session.xml
         </param-value>
     </context-param>
 
@@ -19,18 +20,13 @@
 
     <!-- spring-session-data-redis 配置-->
     <filter>
-        <filter-name>spring-session</filter-name>
+        <filter-name>springSessionRepositoryFilter</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-        <init-param>
-            <param-name>targetBeanName</param-name>
-            <param-value>springSession</param-value>
-        </init-param>
     </filter>
     <filter-mapping>
-        <filter-name>spring-session</filter-name>
+        <filter-name>springSessionRepositoryFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
 
 
     <!-- Spring MVC Servlet -->

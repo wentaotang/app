@@ -2,7 +2,10 @@
 <beans default-lazy-init="true" xmlns="http://www.springframework.org/schema/beans"
 	   xmlns:p="http://www.springframework.org/schema/p"
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	   xmlns:context="http://www.springframework.org/schema/context">
+
+    <context:annotation-config/>
 
 	<!--这里添加的是Redis，因为使用的是Spring里自带的Redis的Session策略 -->
 	<bean id="sessionJedisConnectionFactory"
@@ -26,11 +29,9 @@
 	<!-- 这里的是为了下面的 Session策略过滤器提供构造函数传入的参数，因为Session过滤器要依赖该对象来构造，所以创建一个先 -->
 	<bean name="redisOperationsSessionRepository" class="org.springframework.session.data.redis.RedisOperationsSessionRepository">
 		<constructor-arg ref="sessionJedisConnectionFactory"></constructor-arg>
-		 <!--session的有效期 单位： 分钟 -->
 		<property name="defaultMaxInactiveInterval" value="30"/>
-		<!--<property name="defaultSerializer" ref="fastJsonSerializer"></property>-->
 	</bean>
-
+-
 	<!--<bean id="fastJsonSerializer" class="com.hgcode.fastjson.FastJsonSerializer"/>-->
 
 	<!-- 这个是Session策略过滤器，即将容器原有的Session持久化机制，代替为Spring的 Redis持久化Session机制。 -->
@@ -38,4 +39,13 @@
 	<bean name="springSession" class="org.springframework.session.web.http.SessionRepositoryFilter">
 		<constructor-arg ref="redisOperationsSessionRepository"></constructor-arg>
 	</bean>
+
+	<!--<context:annotation-config/>-->
+	<!-- 配置spring-session -->
+	<!--<bean class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration">
+		&lt;!&ndash; 过期时间100分钟 &ndash;&gt;
+		<property name="maxInactiveIntervalInSeconds" value="6000"></property>
+	</bean>-->
+
+
 </beans>
