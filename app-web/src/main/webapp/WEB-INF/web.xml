@@ -8,7 +8,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath*:/applicationContext.xml
+            classpath*:/applicationContext.xml,classpath*:spring-session.xml
         </param-value>
     </context-param>
 
@@ -32,13 +32,14 @@
     </filter-mapping>
 
 
+
     <!-- Spring MVC Servlet -->
     <servlet>
         <servlet-name>springServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring-mvc.xml</param-value>
+            <param-value>WEB-INF/spring/spring-mvc.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>

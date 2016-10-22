@@ -11,7 +11,7 @@
 
     <description>持久层配置</description>
 
-    <context:component-scan base-package="com.hgcode.mybatis.repository">
+    <context:component-scan base-package="com.hgcode.mybatis.repository" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
     </context:component-scan>
 
@@ -38,26 +38,26 @@
     </bean>
 
     <!-- 使用druid连接池 -->
-    <bean id="dataSourceSpied" class="com.alibaba.druid.pool.DruidDataSource"
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
           destroy-method="close" init-method="init">
-        <property name="driverClassName" value="${jdbc.driver}"/>
-        <property name="url" value="${jdbc.url}"/>
-        <property name="username" value="${jdbc.username}"/>
-        <property name="password" value="${jdbc.password}"/>
+        <property name="driverClassName" value="${database.driver}"/>
+        <property name="url" value="${database.url}"/>
+        <property name="username" value="${database.username}"/>
+        <property name="password" value="${database.password}"/>
 
         <!-- 配置初始化大小、最小、最大 -->
-        <property name="initialSize" value="50"/>
-        <property name="minIdle" value="100"/>
-        <property name="maxActive" value="100"/>
+        <property name="initialSize" value="${database.initialSize}"/>
+        <property name="minIdle" value="${database.minIdle}"/>
+        <property name="maxActive" value="${database.maxActive}"/>
 
         <!-- 配置获取连接等待超时的时间 -->
-        <property name="maxWait" value="60000"/>
+        <property name="maxWait" value="${database.maxWait}"/>
 
         <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
-        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <property name="timeBetweenEvictionRunsMillis" value="${database.timeBetweenEvictionRunsMillis}"/>
 
         <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
-        <property name="minEvictableIdleTimeMillis" value="300000"/>
+        <property name="minEvictableIdleTimeMillis" value="${database.minEvictableIdleTimeMillis}"/>
 
         <property name="validationQuery" value="SELECT 'x'"/>
         <property name="testWhileIdle" value="true"/>
@@ -70,9 +70,4 @@
         <!-- 配置防SQL注入 -->
         <property name="filters" value="stat,wall"/>
     </bean>
-    <!-- 这个需要消耗一定的性能，测试环境使用-->
-    <bean id="dataSource" class="net.sf.log4jdbc.sql.jdbcapi.DataSourceSpy">
-        <constructor-arg ref="dataSourceSpied" />
-    </bean>
-
 </beans>

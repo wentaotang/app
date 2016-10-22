@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
+   /* @Autowired
     private UserService userService;
 
     @RequestMapping(value = "/list",method = RequestMethod.GET)
@@ -29,5 +29,5 @@ public class UserController {
     public JSONGrid<UserEntity> dolist(){
         return new JSONGrid<UserEntity>(userService.findList(),25);
     }
-
+*/
 }

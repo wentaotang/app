@@ -9,11 +9,12 @@ import javax.servlet.http.HttpSession;
  * Created by wentao on 2016/10/22.
  */
 @RestController
-@RequestMapping("/session")
+
 public class SessionController {
 
+    @RequestMapping("/session")
     public String index(HttpSession session){
         session.setAttribute("user","123456");
-        return "";
+        return "ok";
     }
 }

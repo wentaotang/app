@@ -28,10 +28,10 @@
 		<constructor-arg ref="sessionJedisConnectionFactory"></constructor-arg>
 		 <!--session的有效期 单位： 分钟 -->
 		<property name="defaultMaxInactiveInterval" value="30"/>
-		<property name="defaultSerializer" ref="fastJsonSerializer"></property>
+		<!--<property name="defaultSerializer" ref="fastJsonSerializer"></property>-->
 	</bean>
 
-	<bean id="fastJsonSerializer" class="com.hgcode.fastjson.FastJsonSerializer"/>
+	<!--<bean id="fastJsonSerializer" class="com.hgcode.fastjson.FastJsonSerializer"/>-->
 
 	<!-- 这个是Session策略过滤器，即将容器原有的Session持久化机制，代替为Spring的 Redis持久化Session机制。 -->
 	<!-- 注意，这个名字与 web.xml里的targetBean的下value是要一致的。 -->
