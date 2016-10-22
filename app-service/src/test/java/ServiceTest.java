@@ -1,7 +1,5 @@
 import com.hgcode.domain.UserEntity;
-import com.hgcode.mybatis.repository.UserRepository;
 import com.hgcode.service.UserService;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +8,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.UncheckedIOException;
 
 /**
  * Created by wentao on 2016/1/9.

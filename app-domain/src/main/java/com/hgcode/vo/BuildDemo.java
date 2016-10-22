@@ -24,8 +24,8 @@ public class BuildDemo<T> {
         return data;
     }
 
-    private BuildDemo(Builder builder) {
-        this.data = (T) builder.data;
+    private BuildDemo(Builder<T> builder) {
+        this.data = builder.data;
         this.code = builder.code;
     }
 
@@ -41,18 +41,18 @@ public class BuildDemo<T> {
             this.code=code;
         }
 
-        public Builder data(T data) {
+        public Builder<T> data(T data) {
             this.data = data;
             return this;
         }
 
-        public Builder code(String code) {
+        public Builder<T> code(String code) {
             this.code = code;
             return this;
         }
 
-        public BuildDemo build() {
-            return new BuildDemo(this);
+        public BuildDemo<T> build() {
+            return new BuildDemo<T>(this);
         }
     }
 

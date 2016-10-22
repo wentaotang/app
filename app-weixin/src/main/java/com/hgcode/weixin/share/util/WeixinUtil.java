@@ -78,7 +78,7 @@ public class WeixinUtil {
      * Description: 把数组所有元素排序，并按照“参数=参数值”的模式用“&”字符拼接成字符串
      */
     private static String createLinkString(Map<String,String> params){
-        List keys = new ArrayList(params.keySet());
+        List<String> keys = new ArrayList(params.keySet());
         Collections.sort(keys);
         String result = "";
         for (int i = 0; i < keys.size(); i++) {
