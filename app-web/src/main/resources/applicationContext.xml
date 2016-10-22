@@ -7,7 +7,5 @@
     <!--加载properties文件-->
     <context:property-placeholder ignore-resource-not-found="true" location="classpath*:/*.properties" />
 
-    <import resource="classpath*:app-db.xml"/>
     <import resource="classpath*:app-service.xml"/>
-    <import resource="classpath*:spring-mvc.xml"/>
 </beans>
