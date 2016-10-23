@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
  * Created by wentao on 2016/10/22.
  */
 @RestController
-
 public class SessionController {
 
     @RequestMapping("/session")
