@@ -14,6 +14,7 @@
         <module>app-domain</module>
         <module>app-service</module>
         <module>app-redis</module>
+        <module>app-web</module>
     </modules>
 
     <properties>
