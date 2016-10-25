@@ -17,6 +17,14 @@
         <module>app-web</module>
     </modules>
 
+    <repositories>
+        <repository>
+            <name>aliyun</name>
+            <id>aliyun</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
+
     <properties>
         <spring.version>4.3.3.RELEASE</spring.version>
         <mysql.version>6.0.3</mysql.version>
