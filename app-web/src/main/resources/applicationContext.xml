@@ -6,5 +6,6 @@
 
     <context:property-placeholder file-encoding="UTF-8" location="classpath*:/config/*.properties"/>
 
-    <import resource="classpath*:/spring-session.xml"/>
+    <import resource="classpath*:/app-service.xml"/>
+    <!--<import resource="classpath*:/spring-session.xml"/>-->
 </beans>

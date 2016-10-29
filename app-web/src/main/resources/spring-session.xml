@@ -30,12 +30,12 @@
     </bean>
 
 
-    <bean id="springSessionRepositoryFilter" class="org.springframework.session.data.redis.RedisOperationsSessionRepository">
+    <!--<bean id="springSessionRepositoryFilter" class="org.springframework.session.data.redis.RedisOperationsSessionRepository">
         <constructor-arg name="redisConnectionFactory" ref="jedisFactory"/>
     </bean>
 
     <bean name="springSessionRepositoryFilter" class="org.springframework.session.web.http.SessionRepositoryFilter">
         <constructor-arg name="sessionRepository" ref="springSessionRepositoryFilter"/>
     </bean>
-
+-->
 </beans>

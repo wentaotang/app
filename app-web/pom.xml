@@ -13,6 +13,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.hgcode</groupId>
+            <artifactId>app-service</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
         </dependency>
@@ -23,6 +28,10 @@
         <dependency>
             <groupId>org.springframework.session</groupId>
             <artifactId>spring-session-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
         </dependency>
     </dependencies>
 
@@ -37,10 +46,42 @@
                         <port>8080</port>
                     </httpConnector>
                     <webAppConfig>
-                        <contextPath>/${project.artifactId}</contextPath>
+                        <contextPath>/app-web</contextPath>
                     </webAppConfig>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <filters>
+                    <filter>../profile-development.properties</filter>
+                </filters>
+            </build>
+        </profile>
+
+        <profile>
+            <id>product</id>
+            <build>
+                <filters>
+                    <filter>../profile-production.properties</filter>
+                </filters>
+            </build>
+        </profile>
+
+        <profile>
+            <id>test</id>
+            <build>
+                <filters>
+                    <filter>../profile-testing.properties</filter>
+                </filters>
+            </build>
+        </profile>
+    </profiles>
 </project>
