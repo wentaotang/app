@@ -3,9 +3,13 @@ package com.hgcode.web.controller;
 import com.hgcode.domain.UserEntity;
 import com.hgcode.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -21,5 +25,13 @@ public class IndexController {
     public List<UserEntity> index(){
      List<UserEntity> list=   userService.findList();
         return list;
+    }
+
+    @RequestMapping("/add")
+    public List<ObjectError> index(@Valid UserEntity userEntity , BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return bindingResult.getAllErrors();
+        }
+        return null;
     }
 }

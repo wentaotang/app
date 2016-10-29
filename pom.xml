@@ -116,9 +116,14 @@
                 <version>${log4jdbc-log4j2.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-api</artifactId>
-                <version>2.7</version>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.7.21</version>
             </dependency>
             <!--日志相关的jar end -->
             <!--工具类 begin -->
@@ -251,18 +256,20 @@
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
+                    <include>*</include>
                     <include>*/*</include>
                 </includes>
+                <filtering>true</filtering>
             </resource>
             <!-- 设置对jdbc.properties等文件进行过虑，即这些文件中的${key}会被替换掉为真正的值 -->
-            <resource>
+           <!-- <resource>
                 <directory>src/main/resources</directory>
                 <includes>
                     <include>*.properties</include>
                     <include>config/*.properties</include>
                 </includes>
                 <filtering>true</filtering>
-            </resource>
+            </resource>-->
         </resources>
     </build>
 </project>

@@ -2,12 +2,15 @@ package com.hgcode.domain;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import javax.validation.constraints.NotNull;
+
 
 /**
  * Created by wentao on 2016/1/9.
  */
 public class UserEntity {
     private Integer id;
+    @NotNull(message = "{username.is.null}")
     private String userName;
     public Integer getId() {
         return id;
