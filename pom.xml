@@ -42,6 +42,7 @@
         <spring-data-redis.version>1.7.4.RELEASE</spring-data-redis.version>
         <spring-session-data-redis.version>1.2.2.RELEASE</spring-session-data-redis.version>
         <hibernate-validator.version>5.3.0.Final</hibernate-validator.version>
+        <servlet.version>4.0.0-b01</servlet.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
@@ -51,6 +52,12 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${servlet.version}</version>
+            </dependency>
             <!--spring 相关的jar   begin-->
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -261,15 +268,6 @@
                 </includes>
                 <filtering>true</filtering>
             </resource>
-            <!-- 设置对jdbc.properties等文件进行过虑，即这些文件中的${key}会被替换掉为真正的值 -->
-           <!-- <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>*.properties</include>
-                    <include>config/*.properties</include>
-                </includes>
-                <filtering>true</filtering>
-            </resource>-->
         </resources>
     </build>
 </project>

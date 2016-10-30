@@ -7,13 +7,16 @@
     <context:annotation-config/>
 
     <bean class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration">
-
+        <property name="maxInactiveIntervalInSeconds" value="1800"/>
+        <property name="defaultRedisSerializer" ref="fastJsonRedisSerializer"/>
     </bean>
+
+    <bean id="fastJsonRedisSerializer" class="com.hgcode.web.config.FastJsonRedisSerializer"/>
 
 
     <bean id="jedisFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
-          p:poolConfig-ref="jedisPoolConfig" p:usePool="true" p:hostName="${redis.hostname}" p:port="${redis.port}"
-          p:database="${redis.database}" p:timeout="90000"/>
+          p:poolConfig-ref="jedisPoolConfig" p:usePool="true" p:hostName="${session.redis.hostname}" p:port="${session.redis.port}"
+          p:database="${session.redis.database}" p:timeout="90000"/>
 
     <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
         <property name="testOnBorrow" value="true"/>
@@ -28,14 +31,4 @@
         <property name="softMinEvictableIdleTimeMillis" value="${redis.softMinEvictableIdleTimeMillis}"/>
         <property name="minEvictableIdleTimeMillis" value="${redis.minEvictableIdleTimeMillis}"/>
     </bean>
-
-
-    <!--<bean id="springSessionRepositoryFilter" class="org.springframework.session.data.redis.RedisOperationsSessionRepository">
-        <constructor-arg name="redisConnectionFactory" ref="jedisFactory"/>
-    </bean>
-
-    <bean name="springSessionRepositoryFilter" class="org.springframework.session.web.http.SessionRepositoryFilter">
-        <constructor-arg name="sessionRepository" ref="springSessionRepositoryFilter"/>
-    </bean>
--->
 </beans>

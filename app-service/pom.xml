@@ -16,11 +16,11 @@
             <artifactId>app-repository</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-        <dependency>
+       <!-- <dependency>
             <groupId>com.hgcode</groupId>
             <artifactId>app-redis</artifactId>
             <version>${project.parent.version}</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
