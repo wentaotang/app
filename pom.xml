@@ -15,6 +15,7 @@
         <module>app-service</module>
         <module>app-redis</module>
         <module>app-web</module>
+        <module>app-erp</module>
     </modules>
 
     <repositories>
