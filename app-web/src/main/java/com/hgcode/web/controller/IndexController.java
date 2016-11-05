@@ -42,8 +42,9 @@ public class IndexController {
         String param=request.getParameter("param");
         if(StringUtils.isBlank(param)){
             request.getSession().setAttribute("param","123456");
+        }else{
+            request.getSession().setAttribute("param",param);
         }
-        request.getSession().setAttribute("param",param);
         return (String)request.getSession().getAttribute("param");
     }
 }
