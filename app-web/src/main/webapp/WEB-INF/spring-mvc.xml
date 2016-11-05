@@ -31,6 +31,23 @@
         </property>
     </bean>
 
+    <bean id="viewResolver" class="jetbrick.template.web.springmvc.JetTemplateViewResolver">
+        <property name="order" value="1" />
+        <property name="contentType" value="text/html; charset=utf-8" />
+        <property name="suffix" value=".html" />
+
+        <!-- 指定配置文件 -->
+        <property name="configLocation" value="/WEB-INF/jetbrick-template.properties" />
+
+        <!-- 直接配置属性 -->
+        <property name="configProperties">
+            <props>
+                <prop key="jetx.input.encoding">utf-8</prop>
+                <prop key="jetx.output.encoding">utf-8</prop>
+            </props>
+        </property>
+    </bean>
+
     <!-- 以下 validator  ConversionService 在使用 mvc:annotation-driven 会 自动注册-->
     <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
         <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
