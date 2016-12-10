@@ -28,6 +28,7 @@
 
     <properties>
         <spring.version>4.3.3.RELEASE</spring.version>
+        <spring-security.version>4.2.0.RELEASE</spring-security.version>
         <mysql.version>6.0.3</mysql.version>
         <druid.version>1.0.24</druid.version>
         <mybatis.version>3.4.1</mybatis.version>
@@ -53,12 +54,13 @@
 
     <dependencyManagement>
         <dependencies>
-
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
                 <version>${servlet.version}</version>
+                <scope>provided</scope>
             </dependency>
+
             <!--spring 相关的jar   begin-->
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -76,7 +78,21 @@
                 <version>${spring.version}</version>
             </dependency>
             <!--spring 相关的jar   end-->
-            <!--mybatis，分页的jar   begin-->
+
+            <!-- spring security begin -->
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-web</artifactId>
+                <version>${spring-security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-config</artifactId>
+                <version>${spring-security.version}</version>
+            </dependency>
+            <!-- spring security end -->
+
+            <!-- mybatis  begin -->
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-spring</artifactId>
@@ -87,9 +103,9 @@
                 <artifactId>mybatis</artifactId>
                 <version>${mybatis.version}</version>
             </dependency>
+            <!-- mybatis   end-->
 
-            <!--mybatis相关的jar   end-->
-            <!-- 数据库及连接池相关的jar   begin -->
+            <!-- 数据库及连接池相关  begin -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
@@ -100,6 +116,9 @@
                 <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
             </dependency>
+            <!-- 数据库及连接池相关  end -->
+
+            <!-- redis 相关  begin -->
             <dependency>
                 <groupId>redis.clients</groupId>
                 <artifactId>jedis</artifactId>
@@ -115,8 +134,9 @@
                 <artifactId>spring-data-redis</artifactId>
                 <version>${spring-data-redis.version}</version>
             </dependency>
+            <!-- redis 相关  end -->
 
-            <!-- 数据库及连接池相关的jar end -->
+
             <!--日志相关的jar begin -->
             <dependency>
                 <groupId>org.bgee.log4jdbc-log4j2</groupId>
@@ -134,16 +154,12 @@
                 <version>1.7.21</version>
             </dependency>
             <!--日志相关的jar end -->
+
             <!--工具类 begin -->
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
@@ -155,9 +171,20 @@
                 <artifactId>fluent-hc</artifactId>
                 <version>${httpclient.version}</version>
             </dependency>
-
-
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
             <!--工具类 end -->
+
+            <!-- json 工具类  begin-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!-- json 工具类  end-->
 
             <!--模板引擎相关的jar begin -->
             <dependency>
@@ -165,16 +192,7 @@
                 <artifactId>jetbrick-template-springmvc</artifactId>
                 <version>${jetbrick-template.version}</version>
             </dependency>
-            <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-                <version>${servlet.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-validator</artifactId>
-                <version>${hibernate-validator.version}</version>
-            </dependency>
+            <!--模板引擎相关的jar end -->
 
             <!--测试相关的jar begin -->
             <dependency>
