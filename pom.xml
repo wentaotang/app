@@ -15,10 +15,9 @@
         <module>app-service</module>
         <module>app-redis</module>
         <module>app-web</module>
-        <module>app-erp</module>
     </modules>
 
-    <repositories>
+   <repositories>
         <repository>
             <name>aliyun</name>
             <id>aliyun</id>
@@ -44,7 +43,6 @@
         <spring-data-redis.version>1.7.4.RELEASE</spring-data-redis.version>
         <spring-session-data-redis.version>1.2.2.RELEASE</spring-session-data-redis.version>
         <hibernate-validator.version>5.3.0.Final</hibernate-validator.version>
-        <servlet.version>4.0.0-b01</servlet.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>

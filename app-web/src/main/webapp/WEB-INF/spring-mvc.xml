@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
@@ -38,14 +38,6 @@
 
         <!-- 指定配置文件 -->
         <property name="configLocation" value="/WEB-INF/jetbrick-template.properties" />
-
-        <!-- 直接配置属性 -->
-        <property name="configProperties">
-            <props>
-                <prop key="jetx.input.encoding">utf-8</prop>
-                <prop key="jetx.output.encoding">utf-8</prop>
-            </props>
-        </property>
     </bean>
 
     <mvc:default-servlet-handler />
@@ -63,7 +55,6 @@
             <list>
                 <!-- 在web环境中一定要定位到classpath 否则默认到当前web应用下找  -->
                 <value>classpath:/i18n/message</value>
-                <!--<value>classpath:org/hibernate/validator/ValidationMessages</value>-->
             </list>
         </property>
         <property name="useCodeAsDefaultMessage" value="false"/>
