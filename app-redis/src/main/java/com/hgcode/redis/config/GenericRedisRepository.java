@@ -16,16 +16,16 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 public abstract class GenericRedisRepository<E> implements InitializingBean{
     protected FastJsonSerializer serializer;
     protected RedisTemplate<String, E> redisTemplate;
-    protected Class<E> type;
     protected StringRedisTemplate stringRedisTemplate;
 
     @Autowired
     private RedisConnectionFactory jedisConnectionFactory;
 
-    public GenericRedisRepository(Class<E> type){
-        redisTemplate = new RedisTemplate<String, E>();
+    public GenericRedisRepository(){
+        redisTemplate = new RedisTemplate();
         stringRedisTemplate = new StringRedisTemplate();
         serializer = new FastJsonSerializer();
+
     }
 
     @Override

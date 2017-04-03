@@ -2,6 +2,7 @@ package com.hgcode.redis.repository;
 
 import com.hgcode.domain.UserEntity;
 import com.hgcode.redis.config.GenericRedisRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,9 +11,11 @@ import com.hgcode.redis.config.GenericRedisRepository;
  * Time: 10:20
  * To change this template use File | Settings | File Templates.
  */
-public class UserRepository extends GenericRedisRepository<UserEntity> {
+@Repository
+public class UserRedisRepository extends GenericRedisRepository<UserEntity> {
 
-    public UserRepository(Class<UserEntity> type) {
-        super(type);
+    public void save(UserEntity u){
+        redisTemplate.opsForHash().put("abc","1",u);
     }
+
 }

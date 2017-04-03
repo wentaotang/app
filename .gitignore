@@ -102,3 +102,4 @@ buildNumber.properties
 .project
 .settings/
 .classpath
+app-redis/src/test/

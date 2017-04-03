@@ -11,5 +11,6 @@
     </context:component-scan>
 
     <import resource="classpath*:app-repository.xml"/>
+    <import resource="classpath*:app-redis.xml"/>
 
 </beans>
