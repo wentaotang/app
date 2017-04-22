@@ -15,6 +15,7 @@
         <module>app-service</module>
         <module>app-redis</module>
         <module>app-web</module>
+        <module>app-mq</module>
     </modules>
 
    <repositories>
@@ -43,6 +44,8 @@
         <spring-data-redis.version>1.7.4.RELEASE</spring-data-redis.version>
         <spring-session-data-redis.version>1.2.2.RELEASE</spring-session-data-redis.version>
         <hibernate-validator.version>5.3.0.Final</hibernate-validator.version>
+        <httpclient.version>4.5.3</httpclient.version>
+        <spring-amqp.version>1.7.2.RELEASE</spring-amqp.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
@@ -75,6 +78,11 @@
                 <artifactId>spring-jdbc</artifactId>
                 <version>${spring.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
             <!--spring 相关的jar   end-->
 
             <!-- spring security begin -->
@@ -89,6 +97,18 @@
                 <version>${spring-security.version}</version>
             </dependency>
             <!-- spring security end -->
+
+            <!-- mq -->
+            <dependency>
+                <groupId>org.springframework.amqp</groupId>
+                <artifactId>spring-rabbit</artifactId>
+                <version>${spring-amqp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.amqp</groupId>
+                <artifactId>spring-amqp</artifactId>
+                <version>${spring-amqp.version}</version>
+            </dependency>
 
             <!-- mybatis  begin -->
             <dependency>

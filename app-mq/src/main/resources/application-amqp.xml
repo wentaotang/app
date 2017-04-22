@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/rabbit
+       http://www.springframework.org/schema/rabbit/spring-rabbit-1.7.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.hgcode.mq.consumer" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+    </context:component-scan>
+
+    <bean id="connectionFactory"
+          class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">
+        <constructor-arg value="localhost"/>
+        <property name="username" value="guest"/>
+        <property name="password" value="guest"/>
+        <property name="virtualHost" value="/"/>
+        <property name="port" value="5672"/>
+        <property name="channelCacheSize" value="20"/>
+        <property name="connectionTimeout" value="1000"/>
+    </bean>
+
+
+
+    <bean id="retryTemplate" class="org.springframework.retry.support.RetryTemplate">
+        <property name="backOffPolicy">
+            <bean class="org.springframework.retry.backoff.ExponentialBackOffPolicy">
+                <property name="initialInterval" value="500"/>
+                <property name="multiplier" value="10.0"/>
+                <property name="maxInterval" value="10000"/>
+            </bean>
+        </property>
+    </bean>
+
+    <rabbit:template id="rabbitTemplate" connection-factory="connectionFactory" retry-template="retryTemplate"/>
+
+
+    <rabbit:admin connection-factory="connectionFactory"/>
+
+    <rabbit:queue name="myQueue" durable="true" auto-delete="false"/>
+    <rabbit:queue name="member" durable="true" auto-delete="false"/>
+
+    <rabbit:topic-exchange name="myExchange">
+        <rabbit:bindings>
+            <rabbit:binding queue="myQueue" pattern="foo"/>
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
+
+
+    <rabbit:topic-exchange name="exchange.topic.member">
+        <rabbit:bindings>
+            <rabbit:binding queue="member" pattern="member"/>
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
+
+
+    <rabbit:listener-container connection-factory="connectionFactory">
+        <rabbit:listener ref="rabbitTemplate" queues="myQueue"/>
+        <rabbit:listener ref="rabbitTemplate" queues="member"/>
+    </rabbit:listener-container>
+
+
+</beans>
