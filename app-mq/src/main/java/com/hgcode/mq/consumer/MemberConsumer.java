@@ -1,5 +1,6 @@
 package com.hgcode.mq.consumer;
 
+import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class MemberConsumer {
 
     @RabbitListener( queues = {"member"})
-    public void memberHandle(){
-        System.out.println("hello world");
+    public void memberHandle(Message message){
+        System.out.println(message);
     }
 }
