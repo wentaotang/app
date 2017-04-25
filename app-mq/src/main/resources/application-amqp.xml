@@ -3,14 +3,32 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:rabbit="http://www.springframework.org/schema/rabbit"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/rabbit
-       http://www.springframework.org/schema/rabbit/spring-rabbit-1.7.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       http://www.springframework.org/schema/rabbit/spring-rabbit-1.7.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
 
     <context:component-scan base-package="com.hgcode.mq.consumer" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
     </context:component-scan>
+
+    <!-- 异步的线程池，线程池的最在数不能设定太小，不然<rabbit:listener/>/@RabbitListener太多的话，会出现发无法正常消费问题 -->
+    <task:executor id="taskExecutor" pool-size="64" keep-alive="5" queue-capacity="128" />
+
+    <rabbit:annotation-driven/>
+
+    <!--connectionFactory 和 rabbit:annotation-driven 配套使用-->
+    <bean id="rabbitListenerContainerFactory" class="org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory">
+        <property name="taskExecutor" ref="taskExecutor"/>
+        <property name="concurrentConsumers" value="1"/>
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="maxConcurrentConsumers" value="25"/>
+        <property name="messageConverter" ref="jsonMessageConverter"/>
+        <property name="receiveTimeout" value="1000"/>
+    </bean>
 
     <bean id="connectionFactory"
           class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">
@@ -24,7 +42,6 @@
     </bean>
 
 
-
     <bean id="retryTemplate" class="org.springframework.retry.support.RetryTemplate">
         <property name="backOffPolicy">
             <bean class="org.springframework.retry.backoff.ExponentialBackOffPolicy">
@@ -35,35 +52,21 @@
         </property>
     </bean>
 
+
     <rabbit:template id="rabbitTemplate" connection-factory="connectionFactory" retry-template="retryTemplate"/>
 
 
-    <rabbit:admin connection-factory="connectionFactory"/>
+    <rabbit:admin connection-factory="connectionFactory" id="rabbitAdmin"/>
 
-    <rabbit:queue name="myQueue" durable="true" auto-delete="false"/>
     <rabbit:queue name="member" durable="true" auto-delete="false"/>
 
-    <rabbit:topic-exchange name="myExchange">
+
+    <rabbit:direct-exchange  name="exchange.topic.member">
         <rabbit:bindings>
-            <rabbit:binding queue="myQueue" pattern="foo"/>
+            <rabbit:binding queue="member" key="member"/>
         </rabbit:bindings>
-    </rabbit:topic-exchange>
-
-
-    <rabbit:topic-exchange name="exchange.topic.member">
-        <rabbit:bindings>
-            <rabbit:binding queue="member" pattern="member"/>
-        </rabbit:bindings>
-    </rabbit:topic-exchange>
-
-
-    <rabbit:listener-container connection-factory="connectionFactory">
-        <rabbit:listener ref="rabbitTemplate" queues="myQueue"/>
-        <rabbit:listener ref="rabbitTemplate" queues="member"/>
-    </rabbit:listener-container>
+    </rabbit:direct-exchange>
 
 
     <bean id="jsonMessageConverter"  class="org.springframework.amqp.support.converter.Jackson2JsonMessageConverter"></bean>
-
-
 </beans>
