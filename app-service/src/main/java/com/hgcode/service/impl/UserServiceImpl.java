@@ -1,7 +1,7 @@
 package com.hgcode.service.impl;
 
 import com.hgcode.domain.UserEntity;
-import com.hgcode.mybatis.repository.UserRepository;
+import com.hgcode.mybatis.mapper.UserMapper;
 import com.hgcode.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserMapper userRepository;
 
     @Override
     public UserEntity findByUserName(String userName) {

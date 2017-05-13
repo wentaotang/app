@@ -1,4 +1,5 @@
 import com.hgcode.domain.UserEntity;
+import com.hgcode.mybatis.mapper.UserMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * Created by wentao on 2016/1/9.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/app-db.xml")
+@ContextConfiguration("/app-repository.xml")
 public class DbTest {
 
     @Autowired
@@ -22,6 +23,9 @@ public class DbTest {
       UserEntity entity=new UserEntity();
         entity.setUserName("twt");
         System.out.println(entity);
+
+        UserMapper userMapper=(UserMapper) applicationContext.getBean("userMapper");
+        userMapper.insert(entity);
     }
 
     @Test

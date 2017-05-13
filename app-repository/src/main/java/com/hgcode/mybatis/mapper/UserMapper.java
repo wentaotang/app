@@ -1,4 +1,4 @@
-package com.hgcode.mybatis.repository;
+package com.hgcode.mybatis.mapper;
 
 import com.hgcode.domain.UserEntity;
 import org.springframework.stereotype.Repository;
@@ -8,6 +8,6 @@ import java.util.List;
  * Created by wentao on 2016/1/9.
  */
 @Repository
-public interface UserRepository{
+public interface UserMapper  {
      List<UserEntity> findList();
 }
