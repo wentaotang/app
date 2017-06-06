@@ -19,4 +19,9 @@ public class UserController {
         return "user/list";
     }
 
+    @RequestMapping("/add")
+    public String  addDemo(){
+        return "user/add";
+    }
+
 }
