@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import sun.rmi.runtime.Log;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,6 +18,7 @@ public abstract class GenericRedisRepository<E> implements InitializingBean{
     protected FastJsonSerializer serializer;
     protected RedisTemplate<String, E> redisTemplate;
     protected StringRedisTemplate stringRedisTemplate;
+    protected RedisTemplate<String,Long> longRedisTemplate;
 
     @Autowired
     private RedisConnectionFactory jedisConnectionFactory;
@@ -24,6 +26,7 @@ public abstract class GenericRedisRepository<E> implements InitializingBean{
     public GenericRedisRepository(){
         redisTemplate = new RedisTemplate();
         stringRedisTemplate = new StringRedisTemplate();
+        longRedisTemplate=new RedisTemplate<>();
         serializer = new FastJsonSerializer();
 
     }
@@ -43,5 +46,12 @@ public abstract class GenericRedisRepository<E> implements InitializingBean{
         stringRedisTemplate.setHashKeySerializer(redisTemplate.getStringSerializer());
         stringRedisTemplate.setKeySerializer(redisTemplate.getStringSerializer());
         stringRedisTemplate.afterPropertiesSet();
+
+        longRedisTemplate.setConnectionFactory(jedisConnectionFactory);
+        longRedisTemplate.setValueSerializer(redisTemplate.getStringSerializer());
+        longRedisTemplate.setHashValueSerializer(redisTemplate.getStringSerializer());
+        longRedisTemplate.setHashKeySerializer(redisTemplate.getStringSerializer());
+        longRedisTemplate.setKeySerializer(redisTemplate.getStringSerializer());
+        longRedisTemplate.afterPropertiesSet();
     }
 }
