@@ -4,8 +4,14 @@ package com.hgcode.vo;
  * Created by wentao on 16/1/31.
  */
 public enum SexEnum {
-
-    MALE("1"),FEMAL("2");
+    /**
+     * 男性
+     */
+    MALE("1"),
+    /**
+     * 女性
+     */
+    FEMAL("2");
 
     private  String value;
     private  String text;

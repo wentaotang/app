@@ -11,7 +11,7 @@
 
     <description>持久层配置</description>
 
-    <context:component-scan base-package="com.hgcode.mybatis.mapper" use-default-filters="false">
+    <context:component-scan base-package="com.hgcode.repository.mapper" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
     </context:component-scan>
 
@@ -27,7 +27,7 @@
 
     <!--扫描定义的接口-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.hgcode.mybatis.mapper"></property>
+        <property name="basePackage" value="com.hgcode.repository.mapper"></property>
     </bean>
 
 

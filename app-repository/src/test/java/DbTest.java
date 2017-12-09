@@ -1,5 +1,5 @@
 import com.hgcode.domain.UserEntity;
-import com.hgcode.mybatis.mapper.UserMapper;
+import com.hgcode.repository.mapper.UserMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -8,18 +8,18 @@ import com.hgcode.domain.UserEntity;
 public class UserContext implements AutoCloseable
 
 {
-    static final ThreadLocal<UserEntity> current = new ThreadLocal<UserEntity>();
+    static final ThreadLocal<UserEntity> CURRENT = new ThreadLocal<UserEntity>();
 
     public UserContext(UserEntity user) {
-        current.set(user);
+        CURRENT.set(user);
     }
 
     public static UserEntity getCurrentUser() {
-        return current.get();
+        return CURRENT.get();
     }
 
     @Override
     public void close() throws Exception {
-        current.remove();
+        CURRENT.remove();
     }
 }
